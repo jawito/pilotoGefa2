@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gefa2piloto": {
+      "hosting": {
+        "pilotoGefa2": [
+          "gefa2piloto"
+        ]
+      }
+    }
+  }
+}

@@ -5,13 +5,14 @@
 export const environment = {
   production: false,
   firebaseConfig : {
-    apiKey: "AIzaSyB2LzaxtXNbIL8f_HNqQaH3A6cQxp9b0HE",
-    authDomain: "gefa2piloto.firebaseapp.com",
-    databaseURL: "https://gefa2piloto.firebaseio.com",
-    projectId: "gefa2piloto",
-    storageBucket: "gefa2piloto.appspot.com",
-    messagingSenderId: "890571358885",
-    appId: "1:890571358885:web:8f54e23b68286c7346c34c"
+    apiKey: "AIzaSyD2dZMDeWGOMORdsIUiGhH06HuvdJZYzbg",
+    authDomain: "angular2020-a75a8.firebaseapp.com",
+    databaseURL: "https://angular2020-a75a8.firebaseio.com",
+    projectId: "angular2020-a75a8",
+    storageBucket: "angular2020-a75a8.appspot.com",
+    messagingSenderId: "666311608288",
+    appId: "1:666311608288:web:9a778429563f5a6c3a0d85",
+    measurementId: "G-G9XQTEHYJ3"
   }
 };
 

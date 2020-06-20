@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
    try {
     const user= await  this.auth.register(email, password);
     if (user ){
-      this.router.navigate(['home']);
+      this.router.navigate(['/home']);
     }
    } catch (error) {
      

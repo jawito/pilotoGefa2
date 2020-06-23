@@ -8,19 +8,25 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth/services/auth.service';
+import { ClientesComponent } from './clientes/clientes.component';
+import { RouterModule, Routes} from '@angular/router';
 
+const routes : Routes = [
+  {path: 'clientes', component: ClientesComponent }
+]
 
 
 @NgModule({
   declarations: [
     AppComponent    ,
-    NavbarComponent
-    
+    NavbarComponent,
+    ClientesComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule, AngularFireModule.initializeApp(environment.firebaseConfig), AngularFireAuthModule
+    ReactiveFormsModule, AngularFireModule.initializeApp(environment.firebaseConfig), AngularFireAuthModule, RouterModule.forRoot(routes)
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

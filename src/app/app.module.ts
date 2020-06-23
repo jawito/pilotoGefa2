@@ -10,9 +10,15 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from './auth/services/auth.service';
 import { ClientesComponent } from './clientes/clientes.component';
 import { RouterModule, Routes} from '@angular/router';
+import { FacturasComponent } from './facturas/facturas.component';
+import { AcercaComponent } from './acerca/acerca.component';
 
 const routes : Routes = [
-  {path: 'clientes', component: ClientesComponent }
+  {path: 'clientes', component: ClientesComponent },
+  {path: 'facturas', component: FacturasComponent },
+  {path: 'acerca', component: AcercaComponent },
+
+
 ]
 
 
@@ -20,7 +26,9 @@ const routes : Routes = [
   declarations: [
     AppComponent    ,
     NavbarComponent,
-    ClientesComponent
+    ClientesComponent,
+    FacturasComponent,
+    AcercaComponent
 
   ],
   imports: [

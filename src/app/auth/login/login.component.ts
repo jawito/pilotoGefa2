@@ -14,8 +14,8 @@ export class LoginComponent implements OnInit {
 
 private buildForm (){
   this.loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required,Validators.maxLength(50),Validators.email]),
-    password: new FormControl('',[Validators.required,Validators.maxLength(50)])
+    email: new FormControl('prueba6@esprueba.com', [Validators.required,Validators.maxLength(50),Validators.email]),
+    password: new FormControl('prueba6',[Validators.required,Validators.maxLength(50)])
   
   });
   this.loginForm.valueChanges.pipe(debounceTime(1000)).subscribe(valor => {console.log(valor)});

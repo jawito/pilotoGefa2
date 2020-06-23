@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
 //Para crear un formGroup:
 this.formGrupo = formbuilder.group({
   name:[(''), [Validators.required]],
-  email:[(''), [Validators.required]]
+  telefono:[(''), [Validators.required,Validators.max(999999999999),Validators.min(100000000)]]
 
 });
 
@@ -24,7 +24,7 @@ this.emailCtrl.valueChanges.subscribe(valor=>(console.log(valor)));
 // si queremos que espere un tiempo debounceTime en ms
 this.emailCtrl.valueChanges.pipe(debounceTime(2000)).subscribe(valor=>(console.log('retardo '+valor, this.emailCtrl)));
 
-
+this.formGrupo.valueChanges.pipe(debounceTime(1000)).subscribe(valor=>(console.log(valor)));
 
 
 
@@ -39,5 +39,39 @@ getEmail (event : Event){
   event.preventDefault();
   console.log(this.emailCtrl.value);
 }
+
+onSave (event : Event){
+  //cancelamos la funcionalidad del evento por defecto
+  event.preventDefault();
+  console.log(this.formGrupo.value);
+  
+}
+//getters
+get nameField (){
+return this.formGrupo.get('name');
+}
+
+get telefonoField (){
+  return this.formGrupo.get('telefono');
+  }
+get nameValid(){
+  //devuelve true si el campo name esta tocado y es valido
+  return this.nameField.touched && this.nameField.valid;
+}
+get nameInValid(){
+  //devuelve true si el campo name esta tocado y es invalido
+  return this.nameField.touched && this.nameField.invalid;
+}
+
+get telefonoValid(){
+  
+  return this.telefonoField.touched && this.telefonoField.valid;
+}
+get telefonoInValid(){
+  
+  return this.telefonoField.touched && this.telefonoField.invalid;
+}
+
+
 
 }

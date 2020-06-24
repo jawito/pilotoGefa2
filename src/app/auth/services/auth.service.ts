@@ -13,13 +13,13 @@ export class AuthService {
   constructor(public afAuth: AngularFireAuth) { }
 
   async login(email: string, pass: string) {
-    try {
-      const result = await this.afAuth.signInWithEmailAndPassword(email, pass);
-      return result;
-    } catch (error) {
-      console.log(error);
-    }
-
+    // try {
+    //   const result = await this.afAuth.signInWithEmailAndPassword(email, pass);
+    //   return result;
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    return await this.afAuth.signInWithEmailAndPassword(email, pass);
   }
   async logout() {
     try {

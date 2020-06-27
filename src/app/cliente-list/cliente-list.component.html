@@ -1,0 +1,26 @@
+<p>Ejemplo de CRUD, funciona hay que hacer el formulario y la tabla</p>
+
+<button class="btn btn-primary" type="button" (click)="pintaClientes($event)"> envio</button>
+
+<table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Numero</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let order of clientes">
+        <td>
+          {{ order.payload.doc.data().nombre }}
+        </td>
+        <td>{{ order.payload.doc.data().numero }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <ul>
+    <li></li>
+  </ul>
+  

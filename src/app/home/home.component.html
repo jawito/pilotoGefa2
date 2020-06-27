@@ -3,7 +3,7 @@
 <div class="bs-docs-section">
   <div class="row">
     <h3>Ejemplo de validación reactiva de campos de formulario</h3>
-   
+
   </div>
   <small>Falta hacer el email si te atreves....</small>
 </div>
@@ -14,38 +14,38 @@
       <label class="control-label" for="email">Email</label>
       <input class="form-control"  type="email" [formControl]="emailCtrl" id ="email"  >
        <button class="btn btn-primary" [disabled]="emailCtrl.invalid" type="button" (click)="getEmail($event)"> envio</button>
-    
-     
+
+
       <p  *ngIf="emailCtrl.errors  && emailCtrl.dirty">
         <small *ngIf="emailCtrl.hasError('required')" >Debes introducir email</small>
         <small *ngIf="emailCtrl.hasError('minlength')" >Al menos 5 caracteres</small>
       </p>
-      
+
     </div>
   </div>
 
-  <form  [formGroup]="formGrupo" novalidate (ngSubmit)="onSave($event)" > 
+  <form  [formGroup]="formGrupo" novalidate (ngSubmit)="onSave($event)" >
     <div class="row">
       <div class="form-group">
         <fieldset>
           <label for="username" class="text-info">Nombre:</label><br>
-          <input type="text" name="name" id="name"  maxlength="20" 
-                class="form-control" 
+          <input type="text" name="name" id="name"  maxlength="20"
+                class="form-control"
                 [class.is-valid]="nameValid"
                 [class.is-invalid]="nameInValid"
                 formControlName="name">
-                <small *ngIf="nameField.hasError('required')"  class="invalid-feedback">Nombre requerido</small> 
-        </fieldset> 
+                <small *ngIf="nameField.hasError('required')"  class="invalid-feedback">Nombre requerido</small>
+        </fieldset>
         <fieldset>
           <label for="telefono" class="text-info">Telefono:</label><br>
-          <input type="number" name="telefono" id="telefono" class="form-control" 
+          <input type="number" name="telefono" id="telefono" class="form-control"
           [class.is-valid]="telefonoValid"
           [class.is-invalid]="telefonoInValid"
           formControlName="telefono">
-          <small *ngIf="telefonoField.hasError('required')"  class="invalid-feedback">Telefono requerido</small> 
-          <small *ngIf="telefonoField.hasError('min')"  class="invalid-feedback">Telefono con al menos 9 cifras</small>  
-          <small *ngIf="telefonoField.hasError('max')"  class="invalid-feedback">Telefono erroneo</small>  
-        </fieldset> 
+          <small *ngIf="telefonoField.hasError('required')"  class="invalid-feedback">Telefono requerido</small>
+          <small *ngIf="telefonoField.hasError('min')"  class="invalid-feedback">Telefono con al menos 9 cifras</small>
+          <small *ngIf="telefonoField.hasError('max')"  class="invalid-feedback">Telefono erroneo</small>
+        </fieldset>
 
 
         <button class="btn btn-primary" [disabled]="this.formGrupo.invalid" type="button" (click)="onSave($event)" > save</button>

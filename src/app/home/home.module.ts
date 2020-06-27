@@ -6,12 +6,13 @@ import { HomeComponent } from './home.component';
 
 
 
+
 @NgModule({
-  declarations: [HomeComponent
+  declarations: [HomeComponent,
 
   ],
   imports: [
-    CommonModule,ReactiveFormsModule, 
+    CommonModule,ReactiveFormsModule,
     HomeRoutingModule
   ]
 })

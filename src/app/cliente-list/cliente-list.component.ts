@@ -35,7 +35,9 @@ export class ClienteListComponent implements OnInit {
     this.fileToUpload = files.item(0);
     console.log("handleFileInput");
     console.log(this.fileToUpload);
+
   }
+
 
 
 
@@ -43,6 +45,7 @@ export class ClienteListComponent implements OnInit {
   uploadDocument() {
     let fileReader = new FileReader();
     console.log(fileReader.readAsText(this.fileToUpload));
+    // this.usersJson  = fileReader.readAsText(this.fileToUpload);
 
   }
 

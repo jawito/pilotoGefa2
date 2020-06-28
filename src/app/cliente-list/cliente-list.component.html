@@ -1,4 +1,12 @@
 <p>Ejemplo de CRUD, funciona hay que hacer el formulario y la tabla</p>
+<div class="form-group">
+  <label for="file">Choose File</label>
+  <input type="file"
+         id="file"
+         (change)="handleFileInput($event.target.files)">
+</div>
+
+
 
 <button class="btn btn-primary" type="button" (click)="pintaClientes($event)"> envio</button>
 
@@ -20,7 +28,22 @@
     </tbody>
   </table>
   
-  <ul>
-    <li></li>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>cod</th>
+        <th>Numero</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let user of usersJson">
+        <td>
+          {{ user.COD }}
+        </td>
+        <td>{{ user.nombre }}</td>
+      </tr>
+    </tbody>
+  </table>
+
   

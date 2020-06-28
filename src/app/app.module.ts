@@ -15,10 +15,15 @@ import { AcercaComponent } from './acerca/acerca.component';
 import {AngularFirestoreModule} from '@angular/fire/firestore'
 import { ClientesService } from './services/clientes.service';
 import { ClienteListComponent } from './cliente-list/cliente-list.component';
+import { NavClientComponent } from './clientes/nav-client/nav-client.component';
+import { AddclienteComponent } from './clientes/addcliente/addcliente.component';
+
+
 const routes : Routes = [
   {path: 'clientes', component: ClientesComponent },
   {path: 'facturas', component: FacturasComponent },
   {path: 'acerca', component: AcercaComponent },
+  {path: 'addcliente', component: AddclienteComponent}
 
 
 ]
@@ -31,16 +36,18 @@ const routes : Routes = [
     ClientesComponent,
     FacturasComponent,
     AcercaComponent,
-    ClienteListComponent
+    ClienteListComponent,
+    NavClientComponent,
+    AddclienteComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule,  
+    AngularFirestoreModule,
     RouterModule.forRoot(routes)
   ],
   providers: [AuthService,ClientesService],

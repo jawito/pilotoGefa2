@@ -7,27 +7,50 @@
 </div>
 
 
-
 <button class="btn btn-primary" type="button" (click)="pintaClientes($event)"> envio</button>
 
-<table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Numero</th>
-      </tr>
-    </thead>
-  
-    <tbody>
-      <tr *ngFor="let order of clientes">
-        <td>
-          {{ order.payload.doc.data().nombre }}
-        </td>
-        <td>{{ order.payload.doc.data().numero }}</td>
-      </tr>
-    </tbody>
-  </table>
-  
+<table class="table table-hover">
+  <thead>
+    <tr class="table-active">
+      <th scope="col" >Nombre</th>
+      <th scope="col">Edad</th>
+      <th scope="col">CIF/DNI</th>
+      <th scope="col">Razón Social</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">CP</th>
+      <th scope="col">Poblacion</th>
+      <th scope="col">Provincia</th>
+      <th scope="col">Pais</th>
+      <th scope="col">Telefono 1</th>
+      <th scope="col">Telefono 2</th>
+      <th scope="col">Fax</th>
+      <th scope="col">Actividad</th>
+      <th scope="col">email</th>
+      <th scope="col">Fecha Alta</th>
+      <th scope="col">Fecha Modif</th>
+      <th scope="col">Observaciones</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let order of clientes; let impar = odd; let par =even;" [ngClass] = "{azul:par,gris:impar}">
+      <td >{{ order.payload.doc.data().nombre }}</td>
+      <td align="center">{{ order.payload.doc.data().numero }}</td>
+    </tr>
+    <tr class="table-primary">
+      <th scope="row">Primary</th>
+      <td>Column content</td>
+      <td>Column content</td>
+      <td>Column content</td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+<!--
+
   <table>
     <thead>
       <tr>
@@ -35,7 +58,7 @@
         <th>Numero</th>
       </tr>
     </thead>
-  
+
     <tbody>
       <tr *ngFor="let user of usersJson">
         <td>
@@ -46,4 +69,4 @@
     </tbody>
   </table>
 
-  
+-->

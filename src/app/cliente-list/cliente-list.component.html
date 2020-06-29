@@ -11,11 +11,11 @@
 
 <table class="table table-hover">
   <thead>
-    <tr class="table-active">
-      <th scope="col" >Nombre</th>
+    <tr class="table-active text-center align-items-center">
+      <th scope="col" class="align-middle">Nombre</th>
       <th scope="col">Edad</th>
       <th scope="col">CIF/DNI</th>
-      <th scope="col">Razón Social</th>
+      <th scope="col" >Razón Social</th>
       <th scope="col">Dirección</th>
       <th scope="col">CP</th>
       <th scope="col">Poblacion</th>
@@ -35,14 +35,13 @@
 
     <tr *ngFor="let order of clientes; let impar = odd; let par =even;" [ngClass] = "{azul:par,gris:impar}">
       <td >{{ order.payload.doc.data().nombre }}</td>
-      <td align="center">{{ order.payload.doc.data().numero }}</td>
+      <td align="center">{{ order.payload.doc.data().edad }}</td>
+      <td align="center">{{ order.payload.doc.data().DNI }}</td>
+      <td align="center">{{ order.payload.doc.data().razon }}</td>
+      <td align="center">{{ order.payload.doc.data().direccion }}</td>
+      <td align="center">{{ order.payload.doc.data().cp }}</td>
     </tr>
-    <tr class="table-primary">
-      <th scope="row">Primary</th>
-      <td>Column content</td>
-      <td>Column content</td>
-      <td>Column content</td>
-    </tr>
+
 
   </tbody>
 </table>
@@ -51,22 +50,5 @@
 
 
 
-  <table>
-    <thead>
-      <tr>
-        <th>cod</th>
-        <th>Numero</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <tr *ngFor="let user of usersJson">
-        <td>
-          {{ user.COD }}
-        </td>
-        <td>{{ user.nombre }}</td>
-      </tr>
-    </tbody>
-  </table>
 
 

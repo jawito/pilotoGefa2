@@ -9,11 +9,7 @@ import { ClientesService } from 'src/app/services/clientes.service';
 })
 export class MierdatableComponent implements OnDestroy, OnInit {
 
-    dtOptions: DataTables.Settings =
-      {
-        pagingType: 'full_numbers',
-        pageLength: 10
-      }
+    dtOptions: DataTables.Settings = {}
   
     // We use this trigger because fetching the list of persons can be quite long,
     // thus we ensure the data is fetched before rendering
@@ -25,7 +21,10 @@ export class MierdatableComponent implements OnDestroy, OnInit {
     ngOnInit(): void {
        this.dtOptions = {
          pagingType: 'full_numbers',
-         pageLength: 10
+         pageLength: 10,
+         language:{
+          url:"//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
+        }
   
        }
    this.clientesService.getMapClientes().subscribe(clientes => {

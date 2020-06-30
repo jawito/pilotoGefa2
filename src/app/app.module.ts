@@ -17,6 +17,9 @@ import { ClientesService } from './services/clientes.service';
 import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { NavClientComponent } from './clientes/nav-client/nav-client.component';
 import { AddclienteComponent } from './clientes/addcliente/addcliente.component';
+import {MierdatableComponent} from './shared/mierdatable/mierdatable.component';
+import { DataTablesModule } from 'angular-datatables';
+
 
 
 const routes : Routes = [
@@ -39,7 +42,7 @@ const routes : Routes = [
     ClienteListComponent,
     NavClientComponent,
     AddclienteComponent,
-
+    MierdatableComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ const routes : Routes = [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    DataTablesModule,
     RouterModule.forRoot(routes)
   ],
   providers: [AuthService,ClientesService],

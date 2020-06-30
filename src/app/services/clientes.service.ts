@@ -1,21 +1,17 @@
 import { Injectable } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
-import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: "root"
 })
 export class ClientesService {
-  constructor(private firestore: AngularFirestore) {}
-
+  constructor(private firestore: AngularFirestore, private afs: AngularFirestore) {}
+  userCollection: AngularFirestoreCollection<any>;
+  collection: any;
   CLIENTES_TABLA="prueba";
 
-  form = new FormGroup({
-    customerName: new FormControl(""),
-    orderNumber: new FormControl(""),
-    coffeeOrder: new FormControl(""),
-    completed: new FormControl(false)
-  });
+
 
   //Firestore CRUD actions example
   createCliente(data:any) {
@@ -54,6 +50,16 @@ export class ClientesService {
       .doc(data.payload.doc.id)
       .delete();
   }
+  getMapClientes() {
+    this.userCollection = this.afs.collection<any>(this.CLIENTES_TABLA);
+ return   this.collection = this.userCollection.snapshotChanges()
+      .pipe(
+        map(actions => actions.map(a => a.payload.doc.data()))
+      );
+  }
+
+
+
 }
 
 

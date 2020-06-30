@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators , FormBuilder, FormGroup} from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
+import {Cliente} from '../interfaces/cliente'
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,10 @@ import { debounceTime } from 'rxjs/operators';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  fileToUpload: File = null;
+
+  usersJson: Cliente[];
+
   formGrupo : FormGroup;
   //Los campos del formularaio se declaran como formControls
   emailCtrl = new FormControl('',[Validators.required, Validators.minLength(4)]);
@@ -72,6 +77,19 @@ get telefonoInValid(){
   return this.telefonoField.touched && this.telefonoField.invalid;
 }
 
+handleFileInput(files: FileList) {
+  this.fileToUpload = files.item(0);
+  console.log("handleFileInput");
+  console.log(this.fileToUpload);
 
+}
+
+
+uploadDocument() {
+  let fileReader = new FileReader();
+  console.log(fileReader.readAsText(this.fileToUpload));
+  // this.usersJson  = fileReader.readAsText(this.fileToUpload);
+
+}
 
 }

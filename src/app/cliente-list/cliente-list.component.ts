@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientesService } from '../services/clientes.service';
-import {Cliente} from '../interfaces/cliente'
+
 
 @Component({
   selector: 'app-cliente-list',
@@ -14,9 +14,7 @@ export class ClienteListComponent implements OnInit {
   ngOnInit() {
     this.getClientes();
   }
-  fileToUpload: File = null;
-  texto: string[];
-  usersJson: Cliente[];
+
   clientes;
 
 
@@ -31,30 +29,14 @@ export class ClienteListComponent implements OnInit {
       });
   };
 
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
-    console.log("handleFileInput");
-    console.log(this.fileToUpload);
 
-  }
-
-
-
-
-
-  uploadDocument() {
-    let fileReader = new FileReader();
-    console.log(fileReader.readAsText(this.fileToUpload));
-    // this.usersJson  = fileReader.readAsText(this.fileToUpload);
-
-  }
 
   deleteOrder = (data: any) => this.clientesService.deleteCliente(data);
 
   markCompleted = (data: any) => this.clientesService.updateCliente(data);
 
   pintaClientes(event: Event) {
-    this.uploadDocument();
+  
     const datos = {
       nombre: "manolo",
       numero: Math.round(Math.random() * 100)

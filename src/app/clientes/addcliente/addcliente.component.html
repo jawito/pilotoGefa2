@@ -1,53 +1,47 @@
-<div class="container ">
+<div class="container-fluid p-10">
   <div class="row">
-    <div class="col-xs-3" style="margin:0 auto">
-<form  [formGroup]="addClienteForm" novalidate (ngSubmit)="onAdd($event)" >
+    <div class="col-sm-7" style="margin:0 auto">
+      <form  [formGroup]="addClienteForm" novalidate (ngSubmit)="onAdd($event)" >
 
-  <fieldset>
-    <legend><h1>Formulario Creación Usuario</h1></legend>
-
+      <fieldset>
+        <legend><h1 class="text-center">Formulario Creación Usuario</h1></legend>
+         <div class="row">
+            <div class="col-sm-7" style="margin:0 auto">
     <!--Nombre-->
-    <div class="form-group">
-      <label for="campo-Nombre">Nombre</label>
-      <input type="text" class="form-control"
-      [class.is-valid]="nombreValid"
-        [class.is-invalid]="nombreInValid"
-        formControlName="nombre"
+              <div class="form-group">
+                <label for="campo-Nombre"><strong>Nombre</strong></label>
+                <input type="text" class="form-control"
+                  [class.is-valid]="nombreValid"
+                  [class.is-invalid]="nombreInValid"
+                  formControlName="nombre"
 
-      id="campo-Nombre" aria-describedby="emailHelp" placeholder="Nombre">
-      <small *ngIf="addClienteForm.get('nombre').hasError('nombre')"class="invalid-feedback" >Debes introducir un nombre de usuario</small>
-    </div>
+                    id="campo-Nombre" aria-describedby="emailHelp" placeholder="Nombre">
+                    <small *ngIf="addClienteForm.get('nombre').hasError('nombre')"class="invalid-feedback" >Debes introducir un nombre de usuario</small>
 
-      <!--Edad-->
-
-    <div class="form-group">
-      <label for="campo-Edad">Edad</label>
-      <input type="number" class="form-control"
-      [class.is-valid]="edadValid"
-        [class.is-invalid]="edadInValid"
-        formControlName="edad"
-
-      id="campo-Edad" aria-describedby="emailHelp" placeholder="Edad">
-      <small *ngIf="addClienteForm.get('edad').hasError('edad')"class="invalid-feedback" >Debes introducir una edad</small>
-    </div>
+              </div>
+            </div>
 
     <!--DNI-->
 
-   <div class="form-group">
-    <label for="campo-DNI">DNI/CIF</label>
-    <input type="text" class="form-control"
-    [class.is-valid]="dniValid"
-      [class.is-invalid]="dniInValid"
-      formControlName="dni"
+    <div class="col-xs-1" style="margin:0 auto">
+      <div class="form-group">
+       <label for="campo-DNI"><strong>DNI/CIF</strong></label>
+       <input type="text" class="form-control"
+       [class.is-valid]="dniValid"
+         [class.is-invalid]="dniInValid"
+         formControlName="dni"
 
-    id="campo-DNI" aria-describedby="emailHelp" placeholder="DNI/CIF">
-    <small *ngIf="addClienteForm.get('dni').hasError('dni')"class="invalid-feedback" >Debes introducir el DNI/CIF</small>
-  </div>
+       id="campo-DNI" aria-describedby="emailHelp" placeholder="DNI/CIF">
+       <small *ngIf="addClienteForm.get('dni').hasError('dni')"class="invalid-feedback" >Debes introducir el DNI/CIF</small>
+     </div>
+   </div>
+   </div>
 
-  <!--Razon social-->
-
+<!--Razon social-->
+<div class="row">
+<div class="col-sm-12" style="margin:0 auto">
   <div class="form-group">
-    <label for="campo-Razon">Razón Social</label>
+    <label for="campo-Razon"><strong>Razón Social</strong></label>
     <input type="text" class="form-control"
     [class.is-valid]="razonValid"
       [class.is-invalid]="razonInValid"
@@ -56,11 +50,16 @@
     id="campo-razon" aria-describedby="emailHelp" placeholder="Razón Social">
     <small *ngIf="addClienteForm.get('razon').hasError('razon')"class="invalid-feedback" >Debes introducir la razón social</small>
   </div>
+</div>
+</div>
+
+
 
   <!--Dirección-->
-
+  <div class="row">
+    <div class="col-sm-8" style="margin:0 auto">
   <div class="form-group">
-    <label for="campo-Direccion">Direccion</label>
+    <label for="campo-Direccion"><strong>Dirección</strong></label>
     <input type="text" class="form-control"
     [class.is-valid]="direccionValid"
       [class.is-invalid]="direccionInValid"
@@ -69,11 +68,12 @@
     id="campo-direccion" aria-describedby="emailHelp" placeholder="Dirección">
     <small *ngIf="addClienteForm.get('direccion').hasError('direccion')"class="invalid-feedback" >Debes introducir la razón social</small>
   </div>
+</div>
 
   <!--CP-->
-
+  <div class="col-3" style="margin:0 auto">
   <div class="form-group">
-    <label for="campo-cp">CP</label>
+    <label for="campo-cp"><strong>CP</strong></label>
     <input type="number" class="form-control"
     [class.is-valid]="cpValid"
       [class.is-invalid]="cpInValid"
@@ -82,11 +82,14 @@
     id="campo-cp" aria-describedby="emailHelp" placeholder="Código Postal">
     <small *ngIf="addClienteForm.get('cp').hasError('cp')"class="invalid-feedback" >Debes introducir el código postal</small>
   </div>
+</div>
+</div>
 
   <!--Población-->
-
+  <div class="row">
+    <div class="col-sm-4" style="margin:0 auto">
   <div class="form-group">
-    <label for="campo-poblacion">Población</label>
+    <label for="campo-poblacion"><strong>Población</strong></label>
     <input type="text" class="form-control"
     [class.is-valid]="poblacionValid"
       [class.is-invalid]="poblacionInValid"
@@ -95,10 +98,12 @@
     id="campo-poblacion" aria-describedby="emailHelp" placeholder="Población">
     <small *ngIf="addClienteForm.get('poblacion').hasError('poblacion')"class="invalid-feedback" >Debes introducir la población</small>
   </div>
+</div>
 
   <!--Provincia-->
+    <div class="col-sm-4" style="margin:0 auto">
   <div class="form-group">
-    <label for="campo-provincia">Provincia</label>
+    <label for="campo-provincia"><strong>Provincia</strong></label>
     <select class="form-control"
     [class.is-valid]="provinciaValid"
       [class.is-invalid]="provinciaInValid"
@@ -160,11 +165,12 @@
     <option value='zaragoza'>Zaragoza</option>
     </select>
   </div>
+</div>
 
 <!--Pais-->
-
+<div class="col-sm-2" style="margin:0 auto">
 <div class="form-group">
-  <label for="campo-pais">Pais</label>
+  <label for="campo-pais"><strong>País</strong></label>
   <input type="text" class="form-control"
   [class.is-valid]="paisValid"
     [class.is-invalid]="paisInValid"
@@ -173,11 +179,15 @@
   id="campo-pais" aria-describedby="emailHelp" placeholder="Pais">
   <small *ngIf="addClienteForm.get('pais').hasError('pais')"class="invalid-feedback" >Debes introducir el pais</small>
 </div>
+</div>
+</div>
+
 
 <!--Telefono1-->
-
+<div class="row">
+  <div class="col-sm-3" style="margin:0 auto">
 <div class="form-group">
-  <label for="campo-telefono1">Teléfono 1</label>
+  <label for="campo-telefono1"><strong>Teléfono 1</strong></label>
   <input type="number" class="form-control"
   [class.is-valid]="telefono1Valid"
     [class.is-invalid]="telefono1InValid"
@@ -186,11 +196,11 @@
   id="campo-telefono1" aria-describedby="emailHelp" placeholder="Teléfono 1">
   <small *ngIf="addClienteForm.get('telefono1').hasError('telefono1')"class="invalid-feedback" >Debes introducir el Teléfono 1</small>
 </div>
-
+</div>
 <!--Telefono2-->
-
+<div class="col-sm-3" style="margin:0 auto">
 <div class="form-group">
-  <label for="campo-telefono2">Teléfono 2</label>
+  <label for="campo-telefono2"><strong>Teléfono 2</strong></label>
   <input type="number" class="form-control"
   [class.is-valid]="telefono2Valid"
     [class.is-invalid]="telefono2InValid"
@@ -199,11 +209,11 @@
   id="campo-telefono2" aria-describedby="emailHelp" placeholder="Teléfono 2">
   <small *ngIf="addClienteForm.get('telefono2').hasError('telefono2')"class="invalid-feedback" >Debes introducir el Teléfono 2</small>
 </div>
-
+</div>
 <!--Fax-->
-
+<div class="col-sm-3" style="margin:0 auto">
 <div class="form-group">
-  <label for="campo-fax">Fax</label>
+  <label for="campo-fax"><strong>Fax</strong></label>
   <input type="number" class="form-control"
   [class.is-valid]="faxValid"
     [class.is-invalid]="faxInValid"
@@ -212,11 +222,12 @@
   id="campo-fax" aria-describedby="emailHelp" placeholder="Fax">
   <small *ngIf="addClienteForm.get('fax').hasError('fax')"class="invalid-feedback" >Debes introducir el Fax</small>
 </div>
-
+</div>
+</div>
 <!--Actividad-->
 
 <div class="form-group">
-  <label for="campo-actividad">Pais</label>
+  <label for="campo-actividad"><strong>Actividad</strong></label>
   <input type="text" class="form-control"
   [class.is-valid]="actividadValid"
     [class.is-invalid]="actividadInValid"
@@ -228,7 +239,7 @@
 
   <!--email-->
   <div class="form-group">
-    <label for="campo-email">Email</label>
+    <label for="campo-email"><strong>Email</strong></label>
     <input type="email" class="form-control"
     [class.is-valid]="emailValid"
       [class.is-invalid]="emailInValid"
@@ -238,7 +249,7 @@
     <small *ngIf="addClienteForm.get('email').hasError('email')"class="invalid-feedback" >Debes introducir el email</small>
   </div>
 
-  <!--Fecha Alta-->
+  <!--Fecha Alta
 
 <div class="form-group">
   <label for="campo-fecha_alta">Fecha Alta</label>
@@ -250,8 +261,8 @@
   id="campo-fecha_alta" aria-describedby="emailHelp" placeholder="fecha alta">
   <small *ngIf="addClienteForm.get('fecha_alta').hasError('fecha_alta')"class="invalid-feedback" >Debes introducir la fecha de alta</small>
 </div>
-
-<!--Fecha Modificación-->
+-->
+<!--Fecha Modificación
 
 <div class="form-group">
   <label for="campo-fecha_modif">Fecha de Modificación</label>
@@ -263,18 +274,19 @@
   id="campo-fecha_modif" aria-describedby="emailHelp" placeholder="fecha de modificacion">
   <small *ngIf="addClienteForm.get('fecha_modif').hasError('fecha_modif')"class="invalid-feedback" >Debes introducir la fecha de modificacion</small>
 </div>
-
+-->
 <!--Observaciones-->
 
 <div class="form-group">
-  <label for="campo-observaciones">Observaciones</label>
-  <input type="text" class="form-control"
+  <label for="campo-observaciones"><strong>Observaciones</strong></label>
+  <textarea class="form-control"
   [class.is-valid]="observacionesValid"
     [class.is-invalid]="observacionesInValid"
     formControlName="observaciones"
 
-  id="campo-observaciones" aria-describedby="emailHelp" placeholder="Observaciones">
+  id="campo-observaciones" aria-describedby="emailHelp" rows="3"placeholder="Observaciones">
   <small *ngIf="addClienteForm.get('observaciones').hasError('observaciones')"class="invalid-feedback" >Debes introducir las observaciones</small>
+</textarea>
 </div>
 
 <div class="row justify-content-center">
@@ -287,3 +299,4 @@
 
 </form>
 </div>
+<div class="col-sm" style="margin:0 auto"></div>

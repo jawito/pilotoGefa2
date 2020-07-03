@@ -19,7 +19,8 @@ import { NavClientComponent } from './clientes/nav-client/nav-client.component';
 import { AddclienteComponent } from './clientes/addcliente/addcliente.component';
 import {MierdatableComponent} from './shared/mierdatable/mierdatable.component';
 import { DataTablesModule } from 'angular-datatables';
-
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { ToastrModule} from 'ngx-toastr'
 
 
 const routes : Routes = [
@@ -52,7 +53,9 @@ const routes : Routes = [
     AngularFireAuthModule,
     AngularFirestoreModule,
     DataTablesModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [AuthService,ClientesService],
   bootstrap: [AppComponent]

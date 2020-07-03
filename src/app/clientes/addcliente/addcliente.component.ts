@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { ClientesService } from 'src/app/services/clientes.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -41,9 +43,10 @@ export class AddclienteComponent implements OnInit {
   }
 
 
-  constructor(private clientesService: ClientesService) {
+  constructor(private clientesService: ClientesService, private toastr: ToastrService) {
     //Construimos el formulario
     this.buildForm();
+
   }
 
   ngOnInit(): void {
@@ -56,6 +59,7 @@ export class AddclienteComponent implements OnInit {
 
     try {
       this.clientesService.createCliente(this.addClienteForm.value);
+      this.toastr.success('', 'Cliente Añadido');
     } catch (error) {
       console.log(error);
     }

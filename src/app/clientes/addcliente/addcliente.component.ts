@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { ClientesService } from 'src/app/services/clientes.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 
@@ -43,7 +44,9 @@ export class AddclienteComponent implements OnInit {
   }
 
 
-  constructor(private clientesService: ClientesService, private toastr: ToastrService) {
+  constructor(private clientesService: ClientesService, private toastr: ToastrService
+    ,private router: Router
+    ) {
     //Construimos el formulario
     this.buildForm();
 
@@ -53,14 +56,16 @@ export class AddclienteComponent implements OnInit {
   }
   //
   async onAdd(event: Event) {
-    //para evitar que recarge a lo tonto el navedador se cancela el evento nativo
+    //para evitar que recarge a lo tonto el navegador se cancela el evento nativo
     event.preventDefault();
     console.log('Form: ', this.addClienteForm.value);
 
     try {
       this.clientesService.createCliente(this.addClienteForm.value);
       this.toastr.success('', 'Cliente Añadido');
+      this.router.navigate(['/facturas']);
     } catch (error) {
+      this.toastr.error('', 'Error al crear cliente: '+error);
       console.log(error);
     }
 

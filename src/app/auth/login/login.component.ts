@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
       const user = await this.auth.login(email, password);
       console.log("user", user);
       if (user) {
+        this.auth.setCurrentUserMail(email);
         this.router.navigate(['/home']);
       }
     } catch (error) {

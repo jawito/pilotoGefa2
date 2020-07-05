@@ -15,19 +15,19 @@ import { AcercaComponent } from './acerca/acerca.component';
 import {AngularFirestoreModule} from '@angular/fire/firestore'
 import { ClientesService } from './services/clientes.service';
 import { ClienteListComponent } from './cliente-list/cliente-list.component';
-import { NavClientComponent } from './clientes/nav-client/nav-client.component';
 import { AddclienteComponent } from './clientes/addcliente/addcliente.component';
 import {MierdatableComponent} from './shared/mierdatable/mierdatable.component';
 import { DataTablesModule } from 'angular-datatables';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { ToastrModule} from 'ngx-toastr'
+import { CanEditGuard } from './auth/can-edit.guard';
 
 
 const routes : Routes = [
-  {path: 'clientes', component: ClientesComponent },
-  {path: 'facturas', component: FacturasComponent },
-  {path: 'acerca', component: AcercaComponent },
-  {path: 'addcliente', component: AddclienteComponent}
+  {path: 'clientes', component: ClientesComponent, canActivate: [CanEditGuard] },
+  {path: 'facturas', component: FacturasComponent, canActivate: [CanEditGuard]  },
+  {path: 'acerca', component: AcercaComponent, canActivate: [CanEditGuard]  },
+  {path: 'addcliente', component: AddclienteComponent, canActivate: [CanEditGuard] }
 
 
 ]
@@ -41,7 +41,6 @@ const routes : Routes = [
     FacturasComponent,
     AcercaComponent,
     ClienteListComponent,
-    NavClientComponent,
     AddclienteComponent,
     MierdatableComponent
   ],

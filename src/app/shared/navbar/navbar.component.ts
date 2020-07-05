@@ -14,7 +14,11 @@ export class NavbarComponent implements OnInit {
   }
 
    ngOnInit():void {
-    console.log("navbar");
+    if (this.user){
+      console.log('navBar', this.user);
+    }
+
+    console.log("navbar sin user");
 
   }
    logout() {

@@ -63,7 +63,7 @@ export class AddclienteComponent implements OnInit {
     try {
       this.clientesService.createCliente(this.addClienteForm.value);
       this.toastr.success('', 'Cliente Añadido');
-      this.router.navigate(['/facturas']);
+      this.router.navigate(['/cliente']);
     } catch (error) {
       this.toastr.error('', 'Error al crear cliente: '+error);
       console.log(error);

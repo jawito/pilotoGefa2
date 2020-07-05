@@ -33,6 +33,14 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## para que funcione lo ultimo instala esto siguiendo las instrucciones
  http://l-lin.github.io/angular-datatables/#/extensions/buttons
 
+## Intala ngx-toastr
+https://www.npmjs.com/package/ngx-toastr
+Install
+npm install ngx-toastr --save
+@angular/animations package is a required dependency for the default toast
+
+npm install @angular/animations --save
+
  ##Info para desplegar
  https://www.youtube.com/watch?v=GwWIlMKUCJo
  

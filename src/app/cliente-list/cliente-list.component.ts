@@ -36,7 +36,7 @@ export class ClienteListComponent implements OnInit {
   markCompleted = (data: any) => this.clientesService.updateCliente(data);
 
   pintaClientes(event: Event) {
-  
+
     const datos = {
       nombre: "manolo",
       numero: Math.round(Math.random() * 100)

@@ -1,19 +1,10 @@
 {
-  "hosting": [
-    {
-      "target": "pilotoGefa2",
-      "public": "dist/pilotoGefa2",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    }
-  ]
+  "hosting": {
+    "public": "dist/pilotoGefa2",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
 }

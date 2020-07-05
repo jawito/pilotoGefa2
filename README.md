@@ -32,3 +32,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  ng add @angular/fire#
 ## para que funcione lo ultimo instala esto siguiendo las instrucciones
  http://l-lin.github.io/angular-datatables/#/extensions/buttons
+
+ ##Info para desplegar
+ https://www.youtube.com/watch?v=GwWIlMKUCJo
+ 

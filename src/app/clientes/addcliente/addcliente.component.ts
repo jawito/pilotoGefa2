@@ -23,13 +23,13 @@ export class AddclienteComponent implements OnInit {
       dni: new FormControl('', [Validators.required, Validators.maxLength(9), Validators.minLength(9)]),
       razon: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       direccion: new FormControl('', [Validators.required, Validators.maxLength(100)]),
-      cp: new FormControl('', [Validators.required, Validators.maxLength(5)]),
+      cp: new FormControl('', [Validators.required, Validators.max(99999), Validators.min(11111)]),
       poblacion: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       provincia: new FormControl('valladolid', [Validators.required]),
       pais: new FormControl('España', [Validators.required, Validators.maxLength(50)]),
-      telefono1: new FormControl('', [Validators.required, Validators.maxLength(9)]),
-      telefono2: new FormControl('', [Validators.required, Validators.maxLength(9)]),
-      fax: new FormControl('', [Validators.required, Validators.maxLength(9)]),
+      telefono1: new FormControl('', [Validators.required, Validators.max(999999999), Validators.min(111111111)]),
+      telefono2: new FormControl('', [Validators.required, Validators.max(999999999), Validators.min(111111111)]),
+      fax: new FormControl('', [Validators.required, Validators.max(999999999), Validators.min(111111111)]),
       actividad: new FormControl('', [Validators.required, Validators.maxLength(150)]),
       email: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.email]),
       fecha_alta: new FormControl('', [Validators.required, Validators.maxLength(15)]),
@@ -63,7 +63,7 @@ export class AddclienteComponent implements OnInit {
     try {
       this.clientesService.createCliente(this.addClienteForm.value);
       this.toastr.success('', 'Cliente Añadido');
-      this.router.navigate(['/cliente']);
+      this.router.navigate(['/clientes']);
     } catch (error) {
       this.toastr.error('', 'Error al crear cliente: '+error);
       console.log(error);
@@ -132,6 +132,10 @@ export class AddclienteComponent implements OnInit {
     //devuelve true si el campo name esta tocado y es invalido
     return this.razonField.touched && this.razonField.invalid;
   }
+get razonvacio(){
+  return this.razonField.untouched ;
+}
+
   get direccionField() {
     return this.addClienteForm.get('direccion');
   }

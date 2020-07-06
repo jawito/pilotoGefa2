@@ -21,12 +21,14 @@ import { DataTablesModule } from 'angular-datatables';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { ToastrModule} from 'ngx-toastr'
 import { CanEditGuard } from './auth/can-edit.guard';
+import { EditclienteComponent } from './clientes/editcliente/editcliente.component';
 
 
 const routes : Routes = [
   {path: 'clientes', component: ClientesComponent, canActivate: [CanEditGuard] },
   {path: 'facturas', component: FacturasComponent, canActivate: [CanEditGuard]  },
   {path: 'acerca', component: AcercaComponent, canActivate: [CanEditGuard]  },
+  {path: 'editcliente', component: EditclienteComponent, canActivate: [CanEditGuard]  },
   {path: 'addcliente', component: AddclienteComponent, canActivate: [CanEditGuard] }
 
 
@@ -42,7 +44,8 @@ const routes : Routes = [
     AcercaComponent,
     ClienteListComponent,
     AddclienteComponent,
-    MierdatableComponent
+    MierdatableComponent,
+    EditclienteComponent
   ],
   imports: [
     BrowserModule,

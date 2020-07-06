@@ -28,22 +28,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cliente of clientes ">
-          <td >{{ cliente.nombre }}</td>
-          <td>{{ cliente.DNI }}</td>
+          <tr *ngFor="let cliente of clientes " (dblclick)="modificar(cliente)">
+          <td ( >{{ cliente.payload.doc.data().nombre }}</td>
+          <td>{{ cliente.payload.doc.data().DNI }}</td>
      
-          <td> {{cliente.razon }}</td>
-          <td> {{cliente.direccion }}</td>
-          <td> {{cliente.poblacion }}</td>
-          <td> {{cliente.provincia }} /{{cliente.cp }}</td>     
-          <td >{{cliente.telefono1 }}</td>
-          <td >{{cliente.telefono2 }} /{{cliente.fax }}</td>
-          <td >{{cliente.email }}</td>
-          <td >{{cliente.actividad }}</td>
-          <td >{{cliente.observaciones }}</td>
+          <td> {{cliente.payload.doc.data().razon }}</td>
+          <td> {{cliente.payload.doc.data().direccion }}</td>
+          <td> {{cliente.payload.doc.data().poblacion }}</td>
+          <td> {{cliente.payload.doc.data().provincia }} /{{cliente.payload.doc.data().cp }}</td>     
+          <td >{{cliente.payload.doc.data().telefono1 }}</td>
+          <td >{{cliente.payload.doc.data().telefono2 }} /{{cliente.payload.doc.data().fax }}</td>
+          <td >{{cliente.payload.doc.data().email }}</td>
+          <td >{{cliente.payload.doc.data().actividad }}</td>
+          <td >{{cliente.payload.doc.data().observaciones }}</td>
        
-          <td   *ngIf="cliente.fecha_modif"  >{{cliente.fecha_modif }}</td>
-          <td   *ngIf="!cliente.fecha_modif"  >{{cliente.fecha_alta }}</td>
+          <td   *ngIf="cliente.payload.doc.data().fecha_modif"  >{{cliente.payload.doc.data().fecha_modif }}</td>
+          <td   *ngIf="!cliente.payload.doc.data().fecha_modif"  >{{cliente.payload.doc.data().fecha_alta }}</td>
         
           </tr>
         </tbody>

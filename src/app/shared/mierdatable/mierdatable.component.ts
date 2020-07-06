@@ -17,7 +17,7 @@ export class MierdatableComponent implements OnDestroy, OnInit {
     dtTrigger = new Subject();
 
     constructor(private clientesService: ClientesService, private router:Router) { }
-    clientes ;
+    clientes: Array<any> ;
 
     ngOnInit(): void {
 
@@ -61,7 +61,7 @@ export class MierdatableComponent implements OnDestroy, OnInit {
     ]
 
        }
-   this.clientesService.getMapClientes().subscribe(clientes => {
+   this.clientesService.getClientes().subscribe(clientes => {
     this.clientes = clientes;
     // Calling the DT trigger to manually render the table
     this.dtTrigger.next();
@@ -75,6 +75,30 @@ export class MierdatableComponent implements OnDestroy, OnInit {
       // Do not forget to unsubscribe the event
       this.dtTrigger.unsubscribe();
     }
+ 
+    modificar(cliente){
+      console.log(cliente.payload.doc.data());
+      console.log(cliente.payload.doc.id);
+    }
+
+
+    delete(id,cliente){
+      console.log(id);
+      console.log(cliente);
+      console.log($('#'+id).parent);
+    //  this.table.row($('#'+id).parents('tr')).remove().draw(false);
+      //   this.clientesService.deleteCliente(id)
+      //   .then(
+      //     res => {
+      //       this.mensajes.success("El cliente " + cliente.nombre + " se ha borrado bien");
+           
+      //     },
+      //     err => {
+      //       this.mensajes.error("Error al borrar el cliente " + cliente.nombre + " " + err);
+      //       console.log(err);
+      //     }
+      //   )
+       }
 
 
 }

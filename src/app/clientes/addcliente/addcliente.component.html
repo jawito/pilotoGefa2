@@ -4,7 +4,7 @@
       <form  [formGroup]="addClienteForm" novalidate (ngSubmit)="onAdd($event)" >
 
       <fieldset>
-        <legend><h1 class="text-center">Formulario Creación Usuario</h1></legend>
+        <legend><h1 class="text-center">Creación de cliente</h1></legend>
         <div class="container ">
         <div class="row">
             <div class="col-sm-7" style="margin:0 auto">
@@ -15,10 +15,8 @@
                   [class.is-valid]="nombreValid"
                   [class.is-invalid]="nombreInValid"
                   formControlName="nombre"
-
-                    id="campo-Nombre" aria-describedby="emailHelp" placeholder="Nombre">
-                    <small *ngIf="addClienteForm.get('nombre').hasError('nombre')"class="invalid-feedback" >Debes introducir un nombre de usuario</small>
-
+                  id="campo-Nombre" aria-describedby="emailHelp" placeholder="Nombre">
+               <small *ngIf="addClienteForm.get('nombre').hasError('nombre')"class="invalid-feedback" >Debes introducir un nombre de usuario</small>
               </div>
             </div>
 

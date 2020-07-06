@@ -29,7 +29,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let cliente of clientes " (dblclick)="modificar(cliente)">
-          <td ( >{{ cliente.payload.doc.data().nombre }}</td>
+          <td >{{ cliente.payload.doc.data().nombre }}</td>
           <td>{{ cliente.payload.doc.data().DNI }}</td>
      
           <td> {{cliente.payload.doc.data().razon }}</td>

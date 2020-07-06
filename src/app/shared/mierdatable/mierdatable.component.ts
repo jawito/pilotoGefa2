@@ -79,6 +79,7 @@ export class MierdatableComponent implements OnDestroy, OnInit {
     modificar(cliente){
       console.log(cliente.payload.doc.data());
       console.log(cliente.payload.doc.id);
+      this.router.navigate(['/editcliente/' +cliente.payload.doc.id ]);
     }
 
 

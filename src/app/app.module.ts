@@ -22,13 +22,14 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { ToastrModule} from 'ngx-toastr'
 import { CanEditGuard } from './auth/can-edit.guard';
 import { EditclienteComponent } from './clientes/editcliente/editcliente.component';
+import { EditClienteResolver } from './clientes/editcliente/editclienteResolver';
 
 
 const routes : Routes = [
   {path: 'clientes', component: ClientesComponent, canActivate: [CanEditGuard] },
   {path: 'facturas', component: FacturasComponent, canActivate: [CanEditGuard]  },
   {path: 'acerca', component: AcercaComponent, canActivate: [CanEditGuard]  },
-  {path: 'editcliente', component: EditclienteComponent, canActivate: [CanEditGuard]  },
+  {path: 'editcliente/:id', component: EditclienteComponent,resolve:{data : EditClienteResolver }, canActivate: [CanEditGuard]  },
   {path: 'addcliente', component: AddclienteComponent, canActivate: [CanEditGuard] }
 
 
@@ -59,7 +60,7 @@ const routes : Routes = [
     BrowserAnimationsModule,
     ToastrModule.forRoot()
   ],
-  providers: [AuthService,ClientesService],
+  providers: [AuthService,ClientesService,EditClienteResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

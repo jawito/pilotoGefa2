@@ -44,21 +44,36 @@ export class EditclienteComponent implements OnInit {
 
   createForm() {
     this.editClienteForm = this.fb.group({
-      name: [this.item.name, Validators.required],
-      surname: [this.item.surname, Validators.required],
-      age: [this.item.age, Validators.required]
+      nombre: [this.item.nombre, Validators.required],
+      edad:  [this.item.edad],
+      dni:  [this.item.DNI ],
+      razon:  [this.item.razon, Validators.required],
+      direccion:  [this.item.direccion, Validators.required],
+      cp:  [this.item.cp],
+      poblacion:  [this.item.poblacion],
+      provincia:  [this.item.provincia],
+      pais: [this.item.pais, Validators.required],
+      telefono1:  [this.item.telefono, Validators.required],
+      telefono2:  [this.item.telefono2, Validators.required],
+      fax:  [this.item.fax, Validators.required],
+      actividad:  [this.item.actividad],
+      email: [this.item.email],
+      fecha_alta:  [this.item.fecha_alta],
+      fecha_modif:  [this.item.fecha_modif],//TODO sysdate
+      observaciones:  [this.item.observaciones ]
     });
+    
+
+
   }
 
 
 
   onSubmit(value){
-    value.avatar = this.item.avatar;
-    value.age = Number(value.age);
-    this.firebaseService.updateUser(this.item.id, value)
+    this.firebaseService.updateCliente(this.item)
     .then(
       res => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/clientes']);
       }
     )
   }
@@ -67,7 +82,7 @@ export class EditclienteComponent implements OnInit {
     this.firebaseService.deleteUser(this.item.id)
     .then(
       res => {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/clientes']);
       },
       err => {
         console.log(err);

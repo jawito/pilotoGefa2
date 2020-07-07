@@ -11,7 +11,7 @@ export class ClientesService {
   userCollection: AngularFirestoreCollection<any>;
   userCollectionCast: AngularFirestoreCollection<ClientePr>;
   collection: any;
-  CLIENTES_TABLA="prueba";
+  CLIENTES_TABLA="prueba3";
 
 
 
@@ -28,7 +28,7 @@ export class ClientesService {
   createPruebaCliente(data:any) {
     return new Promise<any>((resolve, reject) => {
       this.firestore
-        .collection("prueba")
+        .collection("prueba3")
         .add(data)
         .then(res => {}, err => reject(err));
     });

@@ -1,3 +1,4 @@
+<div class="container">
 <h1>BIENVENIDOS!!</h1>
 <a href="https://www.youtube.com/watch?v=sxpWh7x7uoQ&list=PLn64dwBe2-T2biPCruXOo8c3i3mSQHKtm" > tuto de campos de formularios</a>
 
@@ -8,7 +9,13 @@
     <h3>Ejemplo de validación reactiva de campos de formulario</h3>
    
   </div>
-  <small>Falta hacer el email si te atreves....</small>
+</div>
+<div class="form-group">
+  <label for="file">Choose File</label>
+  <input type="file"
+         id="file"
+         (change)="handleFileInput($event.target.files)">
+         <button type="button" (click)="uploadDocument()">subir</button>
 </div>
 
 <div class="bs-docs-section">
@@ -55,5 +62,7 @@
       </div>
     </div>
   </form>
+
+</div>
 
 </div>

@@ -1,13 +1,17 @@
-  <fieldset>
+ <form  [formGroup]="editClienteForm" novalidate (ngSubmit)="onSubmit($event)">
+ <fieldset>
     <legend><h2 style="text-align: center; padding: 10px;" >EDITAR CLIENTE</h2></legend>
     <br>
+  
 
     <div class="row">
         <div class="col-md-5 offset-md-1">
             <div class="form-group">
-            <label for="InputRazon">Razon Social </label>
+            <label for="InputRazon">{{etiquetas_clientes.razon}}</label>
             <input type="text" class="form-control" id="InputRazon" 
-            aria-describedby="razonHelp" placeholder="Razon Social">
+            formControlName="razon" 
+            aria-describedby="razonHelp" placeholder="Razon Social"
+            >
             <small id="razonHelp" class="form-text text-muted"></small>
             </div>
         </div>
@@ -15,16 +19,18 @@
             <div class="form-group">
             <label for="InputDni">CIF/DNI </label>
             <input type="text" class="form-control" id="InputDni" 
+            formControlName="dni" 
             aria-describedby="DniHelp" placeholder="CIF/DNI">
             <small id="DniHelp" class="form-text text-muted"></small>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-            <label for="InputDni">Actividad </label>
-            <input type="text" class="form-control" id="InputDni" 
-            aria-describedby="DniHelp" placeholder="Actividad">
-            <small id="DniHelp" class="form-text text-muted"></small>
+            <label for="InputActividad">Actividad </label>
+            <input type="text" class="form-control" id="InputActividad" 
+            formControlName="actividad" 
+            aria-describedby="ActividadHelp" placeholder="Actividad">
+            <small id="ActividadHelp" class="form-text text-muted"></small>
             </div>
         </div>
 
@@ -32,35 +38,43 @@
     <div class="row">
         <div class="col-md-3 offset-md-1">
             <div class="form-group">
-            <label for="InputRazon">Nombre </label>
-            <input type="text" class="form-control" id="InputRazon" 
-            aria-describedby="razonHelp" placeholder="Nombre">
-            <small id="razonHelp" class="form-text text-muted"></small>
+            <label for="InputNombre">Nombre </label>
+            <input type="text" class="form-control" 
+            [class.is-valid]="nombreValid"
+            [class.is-invalid]="nombreInValid"
+            formControlName="nombre"
+            id="InputNombre" placeholder="Nombre">
+            <p>
+              <small *ngIf="nombreInValid">{{errores.requerido}} </small>
+            </p>              
             </div>
         </div>
         <div class="col-md-2">
             <div class="form-group">
-            <label for="InputDni">Teléfono </label>
-            <input type="text" class="form-control" id="InputDni" 
-            aria-describedby="DniHelp" placeholder="Teléfono">
-            <small id="DniHelp" class="form-text text-muted"></small>
+            <label for="InputTel">Teléfono </label>
+            <input type="text" class="form-control" id="InputTel"
+            formControlName="telefono1" 
+            aria-describedby="TelHelp" placeholder="Teléfono">
+            <small id="TelHelp" class="form-text text-muted"></small>
             </div>
         </div>
         <div class="col-md-2">
             <div class="form-group">
-            <label for="InputDni">Teléfono 2</label>
-            <input type="text" class="form-control" id="InputDni" 
-            aria-describedby="DniHelp" placeholder="Teléfono 2">
-            <small id="DniHelp" class="form-text text-muted"></small>
+            <label for="InputTel2">Teléfono 2</label>
+            <input type="number" class="form-control" id="InputTel2" 
+            formControlName="telefono2" maxlength="20"
+            aria-describedby="Tel2Help" placeholder="Teléfono 2">
+            <small id="Tel2Help" class="form-text text-muted"></small>
             </div>
         </div>
 
         <div class="col-md-3 ">
             <div class="form-group">
-            <label for="InputDni">Mail </label>
-            <input type="text" class="form-control" id="InputDni" 
-            aria-describedby="DniHelp" placeholder="mail">
-            <small id="DniHelp" class="form-text text-muted"></small>
+            <label for="InputMail">Mail </label>
+            <input type="text" class="form-control" id="InputMail" 
+            formControlName="email" maxlength="50"
+            aria-describedby="MailHelp" placeholder="mail">
+            <small id="MailHelp" class="form-text text-muted"></small>
             </div>
         </div>
     </div>
@@ -68,35 +82,39 @@
     <div class="row">
         <div class="col-md-4 offset-md-1">
             <div class="form-group">
-            <label for="InputRazon">Dirección </label>
-            <input type="text" class="form-control" id="InputRazon" 
-            aria-describedby="razonHelp" placeholder="Dirección">
-            <small id="razonHelp" class="form-text text-muted"></small>
+            <label for="InputDir">Dirección </label>
+            <input type="text" class="form-control" id="InputDir" 
+            formControlName="direccion" maxlength="50"
+            aria-describedby="DirHelp" placeholder="Dirección">
+            <small id="DirHelp" class="form-text text-muted"></small>
             </div>
         </div>
         <div class="col-md-1">
             <div class="form-group">
-            <label for="InputDni">CP </label>
-            <input type="text" class="form-control" id="InputDni" 
-            aria-describedby="DniHelp" placeholder="CP">
-            <small id="DniHelp" class="form-text text-muted"></small>
+            <label for="InputCP">CP </label>
+            <input type="number" class="form-control" id="InputCP" maxlength="5"
+            formControlName="cp" 
+            aria-describedby="CPHelp" placeholder="CP">
+            <small id="CPHelp" class="form-text text-muted"></small>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-            <label for="InputDni">Población</label>
-            <input type="text" class="form-control" id="InputDni" 
-            aria-describedby="DniHelp" placeholder="Población">
-            <small id="DniHelp" class="form-text text-muted"></small>
+            <label for="InputPobla">Población</label>
+            <input type="text" class="form-control" id="InputPobla" 
+            formControlName="poblacion" maxlength="50"
+            aria-describedby="PoblaHelp" placeholder="Población">
+            <small id="PoblaHelp" class="form-text text-muted"></small>
             </div>
         </div>
 
         <div class="col-md-2 ">
             <div class="form-group">
-            <label for="InputDni">Fax </label>
-            <input type="text" class="form-control" id="InputDni" 
-            aria-describedby="DniHelp" placeholder="Fax">
-            <small id="DniHelp" class="form-text text-muted"></small>
+            <label for="InputFax">Fax </label>
+            <input type="text" class="form-control" id="InputFax" 
+            formControlName="fax" maxlength="20"
+            aria-describedby="FaxHelp" placeholder="Fax">
+            <small id="FaxHelp" class="form-text text-muted"></small>
             </div>
         </div>
     </div>
@@ -104,8 +122,8 @@
     <div class="row">
         <div class="col-md-3 offset-md-1">
             <div class="form-group">
-                <label for="campo-provincia"><strong>Provincia</strong></label>
-                <select class="form-control"        id="exampleSelect1">               
+                <label for="provinciaSelect"><strong>Provincia</strong></label>
+                <select class="form-control"   formControlName="provincia"       id="provinciaSelect">               
                 <option value='alava'>Álava</option>
                 <option value='albacete'>Albacete</option>
                 <option value='alicante'>Alicante/Alacant</option>
@@ -163,18 +181,19 @@
         </div>
         <div class="col-md-2">
             <div class="form-group">
-            <label for="InputDni">Pais </label>
-            <input type="text" class="form-control" id="InputDni" 
-            aria-describedby="DniHelp" placeholder="Pais">
-            <small id="DniHelp" class="form-text text-muted"></small>
+            <label for="InputPais">Pais </label>
+            <input type="text" class="form-control" id="InputPais" 
+            formControlName="pais" 
+            aria-describedby="PaisHelp" placeholder="Pais">
+            <small id="PaisHelp" class="form-text text-muted"></small>
             </div>
         </div>
         <div class="col-md-5">
             <div class="form-group">
-            <label for="InputDni">Observaciones</label>
-            <textarea class="form-control"
+            <label for="TextObs">Observaciones</label>
+            <textarea class="form-control"  formControlName="observaciones" 
             
-            id="campo-observaciones" aria-describedby="emailHelp" rows="2"placeholder="Observaciones">
+            id="TextObs" aria-describedby="emailHelp" rows="2"placeholder="Observaciones">
            
           </textarea>
             </div>
@@ -189,7 +208,7 @@
 
     <div class="row">
         <div class="col-md-3 offset-md-2">
-            <button type="submit" class="btn btn-secondary">Volver</button>
+            <button type="button" class="btn btn-secondary" (click)="cancel()" >Volver</button>
         </div>
         <div class="col-md-2">
             <button type="submit" class="btn btn-success">Guardar Cliente</button>
@@ -199,15 +218,11 @@
         </div>
 
         <div class="col-md-2 ">
-            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <button type="button" class="btn btn-danger">Eliminar</button>
         </div>
     </div>
-
-   
-
-   
   
   </fieldset>
-  
+</form>
  
   

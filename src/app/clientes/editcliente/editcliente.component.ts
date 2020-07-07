@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientesService } from 'src/app/services/clientes.service';
+import { ClientesService, ClientePr } from 'src/app/services/clientes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { CastExpr } from '@angular/compiler';
+import { now } from 'jquery';
 
 @Component({
   selector: 'app-editcliente',
@@ -10,18 +12,21 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 })
 export class EditclienteComponent implements OnInit {
   editClienteForm: FormGroup;
-  item: any;
+  item: ClientePr;
+  id:string;
 
-  validation_messages = {
-   'name': [
-     { type: 'required', message: 'Name is required.' }
-   ],
-   'surname': [
-     { type: 'required', message: 'Surname is required.' }
-   ],
-   'age': [
-     { type: 'required', message: 'Age is required.' },
-   ]
+
+errores ={
+  requerido :"El campo es requerido",
+  longitudMax50:"La longitud máxima del campo es 50",
+  email:"El mail no es correcto"
+}
+
+
+  etiquetas_clientes = {
+    nombre: "Nombre",
+    razon:"Razon social"
+     
  };
 
   constructor(
@@ -35,8 +40,9 @@ export class EditclienteComponent implements OnInit {
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {
-        this.item = data.payload.data();
-        this.item.id = data.payload.id;
+        console.log('onInit',data.payload.data())
+        this.item= data.payload.data();
+        console.log('onInit2',this.item)
         this.createForm();
       }
     })
@@ -45,22 +51,21 @@ export class EditclienteComponent implements OnInit {
   createForm() {
     this.editClienteForm = this.fb.group({
       nombre: [this.item.nombre, Validators.required],
-      edad:  [this.item.edad],
       dni:  [this.item.DNI ],
-      razon:  [this.item.razon, Validators.required],
-      direccion:  [this.item.direccion, Validators.required],
-      cp:  [this.item.cp],
-      poblacion:  [this.item.poblacion],
-      provincia:  [this.item.provincia],
-      pais: [this.item.pais, Validators.required],
-      telefono1:  [this.item.telefono, Validators.required],
-      telefono2:  [this.item.telefono2, Validators.required],
-      fax:  [this.item.fax, Validators.required],
-      actividad:  [this.item.actividad],
+      razon: [this.item.DNI ],
+      direccion: [this.item.direccion ],
+      cp: [this.item.cp ],
+      poblacion: [this.item.poblacion ],
+      provincia:[this.item.provincia ]      ,
+      pais: [this.item.pais],
+      telefono1: [this.item.telefono1 ],
+      telefono2: [this.item.telefono2 ],
+      fax: [this.item.fax],
+      actividad: [this.item.actividad],
       email: [this.item.email],
-      fecha_alta:  [this.item.fecha_alta],
-      fecha_modif:  [this.item.fecha_modif],//TODO sysdate
-      observaciones:  [this.item.observaciones ]
+      fecha_alta: [this.item.fecha_alta],
+      fecha_modif: String(now),
+      observaciones: [this.item.observaciones]
     });
     
 
@@ -69,7 +74,7 @@ export class EditclienteComponent implements OnInit {
 
 
 
-  onSubmit(value){
+  onSubmit(event:Event){
     this.firebaseService.updateCliente(this.item)
     .then(
       res => {
@@ -79,7 +84,7 @@ export class EditclienteComponent implements OnInit {
   }
 
   delete(){
-    this.firebaseService.deleteUser(this.item.id)
+    this.firebaseService.deleteUser(this.id)
     .then(
       res => {
         this.router.navigate(['/clientes']);
@@ -91,7 +96,19 @@ export class EditclienteComponent implements OnInit {
   }
 
   cancel(){
-    this.router.navigate(['/home']);
+    this.router.navigate(['/clientes']);
+  }
+
+  get nombreField() {
+    return this.editClienteForm.get('nombre');
+  }
+  get nombreValid() {
+    //devuelve true si el campo name esta tocado y es valido
+    return this.nombreField.touched && this.nombreField.valid;
+  }
+  get nombreInValid() {
+    //devuelve true si el campo name esta tocado y es invalido
+    return this.nombreField.touched && this.nombreField.invalid;
   }
 
 }

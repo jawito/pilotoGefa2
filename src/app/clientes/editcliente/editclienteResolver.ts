@@ -7,7 +7,7 @@ export class EditClienteResolver implements Resolve<any> {
 
   constructor(public firebaseService: ClientesService) { }
 
-  resolve(route: ActivatedRouteSnapshot,) {
+  resolve(route: ActivatedRouteSnapshot) {
 
     return new Promise((resolve, reject) => {
       let userId = route.paramMap.get('id');

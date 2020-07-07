@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
 import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
 })
 export class ClientesService {
-  constructor(private firestore: AngularFirestore, private afs: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) {}
   userCollection: AngularFirestoreCollection<any>;
   userCollectionCast: AngularFirestoreCollection<ClientePr>;
   collection: any;
@@ -52,14 +53,14 @@ export class ClientesService {
       .delete();
   }
   getMapClientes() {
-    this.userCollection = this.afs.collection<any>(this.CLIENTES_TABLA);
+    this.userCollection = this.firestore.collection<any>(this.CLIENTES_TABLA);
  return   this.collection = this.userCollection.snapshotChanges()
       .pipe(
         map(actions => actions.map(a => a.payload.doc.data()))
       );
   }
   getMapClientesCast() {
-    this.userCollectionCast = this.afs.collection<ClientePr>(this.CLIENTES_TABLA);
+    this.userCollectionCast = this.firestore.collection<ClientePr>(this.CLIENTES_TABLA);
  return   this.userCollectionCast.snapshotChanges()
       .pipe(
         map(actions => actions.map(a => a.payload.doc.data()))
@@ -67,8 +68,8 @@ export class ClientesService {
   }
 //ejemplos
 
-getUser(userKey){
-  return this.firestore.collection('users').doc(userKey).snapshotChanges();
+getUser(userKey:string){
+  return this.firestore.collection(this.CLIENTES_TABLA).doc<ClientePr>(userKey).snapshotChanges();
 }
 
 updateUser(userKey, value){
@@ -109,14 +110,13 @@ createUser(value, avatar){
 }
 export class ClientePr {
   id: string;
-  data: {
-
   nombre: string;
   DNI: string;
   razon: string;
   direccion: string;
   poblacion: string;
   provincia: string;
+  pais:string;
   cp: string;
   telefono1: string;
   telefono2: string;
@@ -126,7 +126,7 @@ export class ClientePr {
   observaciones: string;
   fecha_modif: string;
   fecha_alta: string;
-  }
+  
 
 }
 

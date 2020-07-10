@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { Cliente } from '../interfaces/cliente'
 import { ClientesService } from '../services/clientes.service';
+import * as jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-home',
@@ -110,6 +111,24 @@ export class HomeComponent implements OnInit {
     // }
 
 
+  }
+
+  @ViewChild('content') content: ElementRef
+  public exportarPdf() {
+    let doc = new jsPDF();
+    let specialElementHandlers = {
+      '#editor': function (element, renderer) {
+        return true;
+      }
+
+    };
+    let content=this.content.nativeElement;
+    doc.fromHTML(content.innerHTML,15,15,{
+      'width':190,
+      'elementHandlers':specialElementHandlers
+
+      });
+    doc.save('prueba.pdf');
   }
 
 

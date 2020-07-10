@@ -43,4 +43,8 @@ npm install @angular/animations --save
 
  ##Info para desplegar
  https://www.youtube.com/watch?v=GwWIlMKUCJo
+
+ ## Conversion a pdf dependencias
+npm install jspdf --save
+ npm install @types/jspdf --save-dev
  

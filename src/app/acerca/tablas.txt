@@ -1,0 +1,32 @@
+
+tabla facturas{
+idFactura
+formapago
+total
+suma 
+iva
+    lista de conceptos
+
+
+
+}
+tabla conceptos_factura{
+id factura
+precioUnd
+cantidad
+idConcepto
+
+}
+
+
+
+
+tabla conceptos{
+    cod
+    descripcion
+    tipo
+    detalle
+
+
+
+}

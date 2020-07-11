@@ -34,11 +34,11 @@ export class ClientesService {
     });
   }
 
-  updateCliente(data) {
-    return this.firestore
-      .collection(this.CLIENTES_TABLA)
-      .doc(data.payload.doc.id)
-      .set({ completed: true }, { merge: true });
+  updateCliente(id,data:ClientePr) {
+    console.log(id);
+    console.log(data);
+    return this.firestore.collection(this.CLIENTES_TABLA).doc(id).set(data);
+
   }
 
   getClientes() {

@@ -33,7 +33,7 @@ export class ClienteListComponent implements OnInit {
 
   deleteOrder = (data: any) => this.clientesService.deleteCliente(data);
 
-  markCompleted = (data: any) => this.clientesService.updateCliente(data);
+ // markCompleted = (data: any) => this.clientesService.updateCliente(data);
 
   pintaClientes(event: Event) {
 

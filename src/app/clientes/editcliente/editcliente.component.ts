@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { CastExpr } from '@angular/compiler';
 import { now } from 'jquery';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-editcliente',
@@ -33,16 +34,15 @@ errores ={
     public firebaseService: ClientesService,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router, private mensajes:ToastrService
   ) { }
 
   ngOnInit() {
     this.route.data.subscribe(routeData => {
       let data = routeData['data'];
       if (data) {
-        console.log('onInit',data.payload.data())
+        this.id=data.payload.id;
         this.item= data.payload.data();
-        console.log('onInit2',this.item)
         this.createForm();
       }
     })
@@ -75,12 +75,19 @@ errores ={
 
 
   onSubmit(event:Event){
-    this.firebaseService.updateCliente(this.item)
-    .then(
-      res => {
-        this.router.navigate(['/clientes']);
-      }
-    )
+    
+    try{
+      this.firebaseService.updateCliente(this.id, this.item)
+      .then(
+        res => {
+          this.mensajes.success("Cliente " + this.item.nombre + " modificado con éxito!")
+      //    this.router.navigate(['/clientes']);
+        }
+      )
+    }catch(error){
+      this.mensajes.error("Error al modificar cliente " + error)
+    }
+    
   }
 
   delete(){

@@ -1,4 +1,4 @@
-
+<div id="content" #content  >
         <!-- Cabecera -->
         <header>
             
@@ -121,6 +121,73 @@
            
             <hr style="height:10px;border:1px;border-color:black;background-color:#004fea" >
  
+            <table class="table table-hover" style="width: 100%;">
+                <thead class="border-movall">
+                <tr class="table-primary">
+                    <th scope="col" class="number-movall" style="width: 10%;">Cantidad</th>
+                    <th scope="col" style="width: 60%;">Concepto</th>
+                    <th scope="col" class="number-movall" style="width: 15%;">Precio Und.</th>
+                    <th scope="col" class="number-movall" style="width: 15%;">Total</th>             
+                </tr>
+            </thead>
+            <tbody class="border-movall">
+                <tr>
+                    <td class="number-movall" >1</td>
+                    <td >24508 DE SECADOR FD-850380V AIQ</td>
+                    <td class="number-movall" >34</td>
+                    <td class="number-movall" >34</td>
+                </tr>
+                <tr>
+                    <td class="number-movall" >1</td>
+                    <td >24508 DE SECADOR FD-850380V AIQ</td>
+                    <td class="number-movall" >34</td>
+                    <td class="number-movall" >34</td>
+                </tr>
+                <tr>
+                    <td class="number-movall" >1</td>
+                    <td >24508 DE SECADOR FD-850380V AIQ</td>
+                    <td class="number-movall" >34</td>
+                    <td class="number-movall" >34</td>
+                </tr>
+                <tr>
+                    <td class="number-movall" >1</td>
+                    <td >24508 DE SECADOR FD-850380V AIQ</td>
+                    <td class="number-movall" >34</td>
+                    <td class="number-movall" >34</td>
+                </tr>
+                <tr>
+                    <td class="number-movall" >1</td>
+                    <td >24508 DE SECADOR FD-850380V AIQ</td>
+                    <td class="number-movall" >34</td>
+                    <td class="number-movall" >34</td>
+                </tr>
+     
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td ></td>
+                        <td ></td>
+                        <td style="text-align: right;" >SUMA: </td>
+                        <td style="border-style: solid;text-align: right;" >520 €</td>
+                    </tr> 
+                    <tr>
+                        <td ></td>
+                        <td ></td>
+                        <td style="text-align: right;" >IVA(21%): </td>
+                        <td style="border-style: solid;text-align: right;" >105 €</td>
+                    </tr> 
+                    <tr>
+                        <td ></td>
+                        <td ></td>
+                        <td style="text-align: right; "><strong>TOTAL A PAGAR: </strong> </td>
+                        <td style="border-style: solid;text-align: right;" > <strong>655,00 €</strong></td>
+                    </tr> 
+                </tfoot>
+            </table>
+            <br>
+            <br>
+            <button class="btn btn-secondary" type="button" (click)="exportarPdf()" >PDF</button>
+
         </section>
 
 
@@ -134,4 +201,6 @@
           
 
         </footer>
-
+        
+    </div>
+   

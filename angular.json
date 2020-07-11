@@ -145,5 +145,8 @@
       }
     }
   },
-  "defaultProject": "pilotoGefa2"
+  "defaultProject": "pilotoGefa2",
+  "cli": {
+    "analytics": "b95ca265-67e4-47d6-b72a-131ae5154ce7"
+  }
 }

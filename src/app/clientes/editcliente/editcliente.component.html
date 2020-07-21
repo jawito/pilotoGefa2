@@ -8,26 +8,31 @@
         <div class="col-md-5 offset-md-1">
             <div class="form-group">
             <label for="InputRazon">{{etiquetas_clientes.razon}}</label>
-            <input type="text" class="form-control" id="InputRazon" 
+            <input type="text" class="form-control" id="InputRazon"
+            [class.is-valid]="razonValid"
+            [class.is-invalid]="razonInValid" 
             formControlName="razon" 
-            aria-describedby="razonHelp" placeholder="Razon Social"
-            >
+            aria-describedby="razonHelp" placeholder="Razon Social">
             <small id="razonHelp" class="form-text text-muted"></small>
             </div>
         </div>
         <div class="col-md-2">
             <div class="form-group">
-            <label for="InputDni">CIF/DNI </label>
+            <label for="InputDni">{{etiquetas_clientes.dni}} </label>
             <input type="text" class="form-control" id="InputDni" 
+            [class.is-valid]="dniValid"
+            [class.is-invalid]="dniInValid"
             formControlName="dni" 
             aria-describedby="DniHelp" placeholder="CIF/DNI">
-            <small id="DniHelp" class="form-text text-muted"></small>
+            <small *ngIf="dniInValid"  class="invalid-feedback"  >{{errores.dni}} </small>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
             <label for="InputActividad">Actividad </label>
             <input type="text" class="form-control" id="InputActividad" 
+            [class.is-valid]="actividadValid"
+          
             formControlName="actividad" 
             aria-describedby="ActividadHelp" placeholder="Actividad">
             <small id="ActividadHelp" class="form-text text-muted"></small>
@@ -38,21 +43,21 @@
     <div class="row">
         <div class="col-md-3 offset-md-1">
             <div class="form-group">
-            <label for="InputNombre">Nombre </label>
+            <label for="InputNombre">{{etiquetas_clientes.nombre}} </label>
             <input type="text" class="form-control" 
             [class.is-valid]="nombreValid"
             [class.is-invalid]="nombreInValid"
             formControlName="nombre"
             id="InputNombre" placeholder="Nombre">
-            <p>
-              <small *ngIf="nombreInValid">{{errores.requerido}} </small>
-            </p>              
+           <small *ngIf="nombreInValid"  class="invalid-feedback"  >{{errores.requerido}} </small>
+                          
             </div>
         </div>
         <div class="col-md-2">
             <div class="form-group">
-            <label for="InputTel">Teléfono </label>
+            <label for="InputTel">{{etiquetas_clientes.telefono1}} </label>
             <input type="text" class="form-control" id="InputTel"
+            [class.is-valid]="telefono1Valid"
             formControlName="telefono1" 
             aria-describedby="TelHelp" placeholder="Teléfono">
             <small id="TelHelp" class="form-text text-muted"></small>
@@ -62,6 +67,7 @@
             <div class="form-group">
             <label for="InputTel2">Teléfono 2</label>
             <input type="number" class="form-control" id="InputTel2" 
+            [class.is-valid]="telefono2Valid"
             formControlName="telefono2" maxlength="20"
             aria-describedby="Tel2Help" placeholder="Teléfono 2">
             <small id="Tel2Help" class="form-text text-muted"></small>
@@ -70,11 +76,13 @@
 
         <div class="col-md-3 ">
             <div class="form-group">
-            <label for="InputMail">Mail </label>
+            <label for="InputMail">{{etiquetas_clientes.mail}}</label>
             <input type="text" class="form-control" id="InputMail" 
+            [class.is-valid]="emailValid"
+            [class.is-invalid]="emailInValid"
             formControlName="email" maxlength="50"
             aria-describedby="MailHelp" placeholder="mail">
-            <small id="MailHelp" class="form-text text-muted"></small>
+            <small *ngIf="emailInValid"  class="invalid-feedback"  >{{errores.email}} </small>
             </div>
         </div>
     </div>
@@ -82,17 +90,20 @@
     <div class="row">
         <div class="col-md-4 offset-md-1">
             <div class="form-group">
-            <label for="InputDir">Dirección </label>
+            <label for="InputDir">{{etiquetas_clientes.direccion}} </label>
             <input type="text" class="form-control" id="InputDir" 
             formControlName="direccion" maxlength="50"
+            [class.is-valid]="direccionValid"
+            [class.is-invalid]="direccionInValid"
             aria-describedby="DirHelp" placeholder="Dirección">
-            <small id="DirHelp" class="form-text text-muted"></small>
+            <small *ngIf="direccionInValid"  class="invalid-feedback"  >{{errores.requerido}} </small>
             </div>
         </div>
         <div class="col-md-1">
             <div class="form-group">
-            <label for="InputCP">CP </label>
+            <label for="InputCP">{{etiquetas_clientes.cp}} </label>
             <input type="number" class="form-control" id="InputCP" maxlength="5"
+            [class.is-valid]="cpValid"
             formControlName="cp" 
             aria-describedby="CPHelp" placeholder="CP">
             <small id="CPHelp" class="form-text text-muted"></small>
@@ -100,9 +111,10 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-            <label for="InputPobla">Población</label>
+            <label for="InputPobla">{{etiquetas_clientes.poblacion}}</label>
             <input type="text" class="form-control" id="InputPobla" 
             formControlName="poblacion" maxlength="50"
+            [class.is-valid]="poblacionValid"
             aria-describedby="PoblaHelp" placeholder="Población">
             <small id="PoblaHelp" class="form-text text-muted"></small>
             </div>
@@ -113,6 +125,7 @@
             <label for="InputFax">Fax </label>
             <input type="text" class="form-control" id="InputFax" 
             formControlName="fax" maxlength="20"
+            [class.is-valid]="faxValid"
             aria-describedby="FaxHelp" placeholder="Fax">
             <small id="FaxHelp" class="form-text text-muted"></small>
             </div>
@@ -123,7 +136,9 @@
         <div class="col-md-3 offset-md-1">
             <div class="form-group">
                 <label for="provinciaSelect"><strong>Provincia</strong></label>
-                <select class="form-control"   formControlName="provincia"       id="provinciaSelect">               
+                <select class="form-control"   formControlName="provincia" 
+                [class.is-valid]="provinciaValid"
+                id="provinciaSelect">               
                 <option value='alava'>Álava</option>
                 <option value='albacete'>Albacete</option>
                 <option value='alicante'>Alicante/Alacant</option>
@@ -183,6 +198,7 @@
             <div class="form-group">
             <label for="InputPais">Pais </label>
             <input type="text" class="form-control" id="InputPais" 
+            [class.is-valid]="paisValid"
             formControlName="pais" 
             aria-describedby="PaisHelp" placeholder="Pais">
             <small id="PaisHelp" class="form-text text-muted"></small>
@@ -192,7 +208,7 @@
             <div class="form-group">
             <label for="TextObs">Observaciones</label>
             <textarea class="form-control"  formControlName="observaciones" 
-            
+            [class.is-valid]="observacionesValid"
             id="TextObs" aria-describedby="emailHelp" rows="2"placeholder="Observaciones">
            
           </textarea>

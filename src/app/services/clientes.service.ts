@@ -109,23 +109,24 @@ createUser(value, avatar){
 
 }
 export class ClientePr {
-  id: string;
-  nombre: string;
-  DNI: string;
-  razon: string;
+  actividad: string;
+  codigo: number;
+  cp: number;
   direccion: string;
+  dni: string;
+  email: string;
+  fax: string;
+  fecha_alta: string;
+  fecha_modif: string;
+  nombre: string;
+  observaciones: string;
   poblacion: string;
   provincia: string;
-  pais:string;
-  cp: string;
+  razon: string;
   telefono1: string;
   telefono2: string;
-  fax: string;
-  email: string;
-  actividad: string;
-  observaciones: string;
-  fecha_modif: string;
-  fecha_alta: string;
+  pais:string;
+
   
 
 }

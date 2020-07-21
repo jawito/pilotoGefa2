@@ -1,7 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Subject } from 'rxjs';
 import { ClientesService } from 'src/app/services/clientes.service';
 import { Router } from '@angular/router';
+import { DataTableDirective } from 'angular-datatables';
+
 
 @Component({
   selector: 'app-mierdatable',
@@ -9,8 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./mierdatable.component.scss']
 })
 export class MierdatableComponent implements OnDestroy, OnInit {
-
    // dtOptions: DataTables.Settings = {}
+   @ViewChild(DataTableDirective) dtElement: DataTableDirective;
    dtOptions: any = {};
     // We use this trigger because fetching the list of persons can be quite long,
     // thus we ensure the data is fetched before rendering
@@ -20,11 +22,13 @@ export class MierdatableComponent implements OnDestroy, OnInit {
     clientes: Array<any> ;
 
     ngOnInit(): void {
+console.log("ngOnInit");
+console.log(this.dtOptions);
 
        this.dtOptions = {
          pagingType: 'full_numbers',
          pageLength: 10,
-         language:{
+            language:{
 
 
             searchPlaceholder: "Buscar...",
@@ -38,7 +42,7 @@ export class MierdatableComponent implements OnDestroy, OnInit {
       // Configure the buttons
       buttons: [
         { extend: 'colvis',
-        className: 'btn',
+        className: 'btn btn-primary',
         text: '<button class="btn btn-primary"><i class="fas fa-eye"></i>  Ver Campos </button>' },
 
       {   extend: 'print',
@@ -59,26 +63,37 @@ export class MierdatableComponent implements OnDestroy, OnInit {
 
 
     ]
-
+     
        }
    this.clientesService.getClientes().subscribe(clientes => {
     this.clientes = clientes;
     // Calling the DT trigger to manually render the table
-    this.dtTrigger.next();
+  //  this.dtTrigger.next();
       });
 
     }
 
+    ngAfterViewInit(): void {this.dtTrigger.next();}
 
+    rerender(): void {
+      this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+         dtInstance.destroy();
+         this.dtTrigger.next();     
+     });
+    }
 
     ngOnDestroy(): void {
       // Do not forget to unsubscribe the event
+    console.log("ngOnDestroy");
       this.dtTrigger.unsubscribe();
     }
+
+
  
     modificar(cliente){
-      console.log(cliente.payload.doc.data());
+      console.log("modificar");
       console.log(cliente.payload.doc.id);
+
       this.router.navigate(['/editcliente/' +cliente.payload.doc.id ]);
     }
 
@@ -103,22 +118,4 @@ export class MierdatableComponent implements OnDestroy, OnInit {
 
 
 }
-export class ClientePr {
-  nombre: string;
-  DNI: string;
-  razon: string;
-  direccion: string;
-  poblacion: string;
-  provincia: string;
-  cp: string;
-  telefono1: string;
-  telefono2: string;
-  fax: string;
-  email: string;
-  actividad: string;
-  observaciones: string;
-  fecha_modif: string;
-  fecha_alta: string;
 
-
-}

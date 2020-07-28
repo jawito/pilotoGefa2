@@ -23,12 +23,16 @@ import { ToastrModule} from 'ngx-toastr'
 import { CanEditGuard } from './auth/can-edit.guard';
 import { EditclienteComponent } from './clientes/editcliente/editcliente.component';
 import { EditClienteResolver } from './clientes/editcliente/editclienteResolver';
+import { ClienteTablaComponent } from './clientes/cliente-tabla/cliente-tabla.component';
+import { MaterialModule } from './material/material.module';
+
 
 
 const routes : Routes = [
   {path: 'clientes', component: ClientesComponent, canActivate: [CanEditGuard] },
   {path: 'facturas', component: FacturasComponent, canActivate: [CanEditGuard]  },
   {path: 'acerca', component: AcercaComponent, canActivate: [CanEditGuard]  },
+  {path: 'tabla', component: ClienteTablaComponent, canActivate: [CanEditGuard]  },
   {path: 'editcliente/:id', component: EditclienteComponent,resolve:{data : EditClienteResolver }, canActivate: [CanEditGuard]  },
   {path: 'addcliente', component: AddclienteComponent, canActivate: [CanEditGuard] }
 
@@ -46,7 +50,8 @@ const routes : Routes = [
     ClienteListComponent,
     AddclienteComponent,
     MierdatableComponent,
-    EditclienteComponent
+    EditclienteComponent,
+    ClienteTablaComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,8 @@ const routes : Routes = [
     DataTablesModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MaterialModule
   ],
   providers: [AuthService,ClientesService,EditClienteResolver],
   bootstrap: [AppComponent]

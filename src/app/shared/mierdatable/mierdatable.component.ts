@@ -12,11 +12,11 @@ import { DataTableDirective } from 'angular-datatables';
 })
 export class MierdatableComponent implements OnDestroy, OnInit {
    // dtOptions: DataTables.Settings = {}
-   @ViewChild(DataTableDirective) dtElement: DataTableDirective;
+   @ViewChild(DataTableDirective, {static: false})dtElement: DataTableDirective;
    dtOptions: any = {};
     // We use this trigger because fetching the list of persons can be quite long,
     // thus we ensure the data is fetched before rendering
-    dtTrigger = new Subject();
+    dtTrigger = new Subject<any>();
 
     constructor(private clientesService: ClientesService, private router:Router) { }
     clientes: Array<any> ;
@@ -28,16 +28,14 @@ console.log(this.dtOptions);
        this.dtOptions = {
          pagingType: 'full_numbers',
          pageLength: 10,
-            language:{
-
-
+         destroy: true,
+         language:{
             searchPlaceholder: "Buscar...",
-
           url:"//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
         },
   // Declare the use of the extension in the dom parameter
            responsive:true,
-            // Declare the use of the extension in the dom parameter
+          // Declare the use of the extension in the dom parameter
       dom: 'B<"border border-bottom-0"f>rtip' ,
       // Configure the buttons
       buttons: [
@@ -66,26 +64,42 @@ console.log(this.dtOptions);
      
        }
    this.clientesService.getClientes().subscribe(clientes => {
-    this.clientes = clientes;
+   this.clientes = clientes;
     // Calling the DT trigger to manually render the table
-  //  this.dtTrigger.next();
+   // this.dtTrigger.next();
       });
-
+      console.log("END");
     }
 
-    ngAfterViewInit(): void {this.dtTrigger.next();}
-
-    rerender(): void {
-      this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-         dtInstance.destroy();
-         this.dtTrigger.next();     
-     });
+     ngAfterViewInit(): void {
+     
+      console.log("ngAfterViewInit");
+      this.dtTrigger.next();
+    //   this.clientesService.getClientes().subscribe(clientes => {
+    //     this.clientes = clientes;
+    //    this.dtTrigger.next();
+    //  });
     }
+
+     rerender(): void {
+      console.log("rerender");
+       this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+        console.log("rerenderIN");
+          dtInstance.destroy();
+          this.dtTrigger.next();     
+      });
+     }
 
     ngOnDestroy(): void {
       // Do not forget to unsubscribe the event
-    console.log("ngOnDestroy");
-      this.dtTrigger.unsubscribe();
+  //  console.log("ngOnDestroy");
+    //  this.dtTrigger.unsubscribe();
+
+      this.dtElement.dtInstance.then( (dtInstance: DataTables.Api) => {
+        console.log('destroy table');
+        dtInstance.destroy();
+        this.dtTrigger.unsubscribe();
+      });
     }
 
 

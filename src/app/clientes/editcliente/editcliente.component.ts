@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ClientesService, ClientePr } from 'src/app/services/clientes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { CastExpr } from '@angular/compiler';
-import { now } from 'jquery';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -85,6 +83,7 @@ errores ={
 
 
   onSubmit(event:Event){
+    event.preventDefault();
     console.log(this.id);
     console.log(this.editClienteForm.value);
     try{
@@ -98,6 +97,7 @@ errores ={
     }catch(error){
       this.mensajes.error("Error al modificar cliente " + error)
     }
+    console.log("FIN GUARDAR CLIENTE");
     
   }
 

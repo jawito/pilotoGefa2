@@ -43,6 +43,9 @@ npm install @angular/animations --save
 
  ##Info para desplegar
  https://www.youtube.com/watch?v=GwWIlMKUCJo
+ng build
+firebase deploy
+
 
  ## Conversion a pdf dependencias
 npm install jspdf --save

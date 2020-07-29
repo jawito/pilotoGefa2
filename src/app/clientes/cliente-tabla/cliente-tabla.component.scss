@@ -1,12 +1,26 @@
 table {
     width: 100%;
   }
-  
+
   .mat-form-field {
     font-size: 14px;
     width: 100%;
   }
-  
+
   td, th {
     width: 25%;
   }
+
+  .mat-row:nth-child(even){
+    border-color:#93d0f3;
+    background-color:#c5e6f8
+    }
+
+  .mat-row:nth-child(odd){
+    border-color:#f4f5f7;
+    background-color:#eaedf1;
+    }
+
+  .mat-row:hover > .mat-cell {
+    background-color:#dee2e6
+    }

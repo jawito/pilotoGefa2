@@ -2,14 +2,21 @@ import { Injectable } from "@angular/core";
 import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/firestore";
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { ClienteInterface } from '../model/interfaces';
 
 @Injectable({
   providedIn: "root"
 })
 export class ClientesService {
   constructor(private firestore: AngularFirestore) {}
+  private clientesCollection: AngularFirestoreCollection<ClienteInterface>;
+  private clientes: Observable<ClienteInterface[]>;
+ // private clienteDoc: AngularFirestoreDocument<ClienteInterface>;
+  private cliente: Observable<ClienteInterface>;
+
+
   userCollection: AngularFirestoreCollection<any>;
-  userCollectionCast: AngularFirestoreCollection<ClientePr>;
+
   collection: any;
   CLIENTES_TABLA="prueba3";
 
@@ -34,17 +41,31 @@ export class ClientesService {
     });
   }
 
-  updateCliente(id,data:ClientePr) {
-    console.log(id);
-    console.log(data);
-    return this.firestore.collection(this.CLIENTES_TABLA).doc(id).set(data);
+  updateCliente(id, cliente:ClienteInterface) {
+    let idCliente = cliente.id;
+    console.log(cliente);
+    return this.firestore.collection(this.CLIENTES_TABLA).doc(id).set(cliente);
 
   }
+
 
   getClientes() {
     console.log("obteniendo clientes de " +this.CLIENTES_TABLA );
     return this.firestore.collection(this.CLIENTES_TABLA).snapshotChanges();
   }
+
+  getAllClientes() {
+    this.clientesCollection = this.firestore.collection<ClienteInterface>(this.CLIENTES_TABLA);
+    return this.clientes = this.clientesCollection.snapshotChanges()
+      .pipe(map(changes => {
+        return changes.map(action => {
+          const data = action.payload.doc.data() as ClienteInterface;
+          data.id = action.payload.doc.id;
+          return data;
+        });
+      }));
+  }
+
 
   deleteCliente(id){
     return this.firestore
@@ -59,17 +80,11 @@ export class ClientesService {
         map(actions => actions.map(a => a.payload.doc.data()))
       );
   }
-  getMapClientesCast() {
-    this.userCollectionCast = this.firestore.collection<ClientePr>(this.CLIENTES_TABLA);
- return   this.userCollectionCast.snapshotChanges()
-      .pipe(
-        map(actions => actions.map(a => a.payload.doc.data()))
-      );
-  }
+
 //ejemplos
 
 getUser(userKey:string){
-  return this.firestore.collection(this.CLIENTES_TABLA).doc<ClientePr>(userKey).snapshotChanges();
+  return this.firestore.collection(this.CLIENTES_TABLA).doc<ClienteInterface>(userKey).snapshotChanges();
 }
 
 updateUser(userKey, value){
@@ -108,26 +123,5 @@ createUser(value, avatar){
  
 
 }
-export class ClientePr {
-  actividad: string;
-  codigo: number;
-  cp: number;
-  direccion: string;
-  dni: string;
-  email: string;
-  fax: string;
-  fecha_alta: string;
-  fecha_modif: string;
-  nombre: string;
-  observaciones: string;
-  poblacion: string;
-  provincia: string;
-  razon: string;
-  telefono1: string;
-  telefono2: string;
-  pais:string;
 
-  
-
-}
 

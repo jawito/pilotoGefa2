@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientesService, ClientePr } from 'src/app/services/clientes.service';
+import { ClientesService} from 'src/app/services/clientes.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ClienteInterface } from '../../model/interfaces';
 
 @Component({
   selector: 'app-editcliente',
@@ -11,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditclienteComponent implements OnInit {
   editClienteForm: FormGroup;
-  item: ClientePr;
+  item: ClienteInterface;
   id:string;
 
 
@@ -64,8 +65,7 @@ errores ={
       direccion: [this.item.direccion, Validators.required ],
       cp: [this.item.cp ],
       poblacion: [this.item.poblacion ],
-      provincia:[this.item.provincia ]      ,
-      pais: [this.item.pais],
+      provincia:[this.item.provincia ] ,
       telefono1: [this.item.telefono1 ],
       telefono2: [this.item.telefono2 ],
       fax: [this.item.fax],
@@ -91,7 +91,7 @@ errores ={
       .then(
         res => {
           this.mensajes.success("Cliente " + this.item.nombre + " modificado con éxito!")
-      //    this.router.navigate(['/clientes']);
+          this.router.navigate(['/tabla']);
         }
       )
     }catch(error){
@@ -105,7 +105,7 @@ errores ={
     this.firebaseService.deleteUser(this.id)
     .then(
       res => {
-        this.router.navigate(['/clientes']);
+        this.router.navigate(['/tabla']);
       },
       err => {
         console.log(err);
@@ -114,7 +114,7 @@ errores ={
   }
 
   cancel(){
-    this.router.navigate(['/clientes']);
+    this.router.navigate(['/tabla']);
   }
 
   getCurrentDate(){
@@ -201,10 +201,7 @@ errores ={
     //devuelve true si el campo name esta tocado y es valido
     return this.editClienteForm.get('provincia').touched ;
   }
-  get paisValid() {
-    //devuelve true si el campo name esta tocado y es valido
-    return this.editClienteForm.get('pais').touched ;
-  }
+
   get telefono1Valid() {
     //devuelve true si el campo name esta tocado y es valido
     return this.editClienteForm.get('telefono1').touched ;

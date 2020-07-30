@@ -2,9 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
-import { ClientesService, ClientePr } from 'src/app/services/clientes.service';
+import { ClientesService } from 'src/app/services/clientes.service';
 import {SelectionModel} from '@angular/cdk/collections';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -23,13 +24,14 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 
 export class ClienteTablaComponent implements OnInit {
 
-  constructor (private clienteService: ClientesService){}
+  constructor (private clienteService: ClientesService, private router:Router){}
   displayedColumns: string[] = ['nombre', 'razon', 'direccion',
         'poblacion', 'provincia'];
   labels: string[] = ['Nombre', 'Razón Social', 'Dirección',
         'Población', 'Provincia'];      
   dataSource = new MatTableDataSource();
-  clientes = new Array<ClientePr>();
+
+  data:any;
   busqueda:string;
   expandedElement: ClienteTablaComponent | null;
 
@@ -44,15 +46,12 @@ export class ClienteTablaComponent implements OnInit {
   }
 
 getData(){
-  this.clienteService.getMapClientes().subscribe(res=>{
+  this.clienteService.getAllClientes().subscribe(res=>{
     console.log("res",res);
      this.dataSource.data = res;
   })
-//   this.clienteService.getMapClientes().subscribe(res=>{
-//     console.log("res",res);
-//     this.clientes = res;
-//  })
-//   console.log("clientes",this.clientes);
+   
+
 }
 
   applyFilter(event: Event) {
@@ -63,6 +62,13 @@ getData(){
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+  modificar (cliente){
+    console.log("Modificar",cliente);
+    console.log(cliente.id);
+
+    this.router.navigate(['/editcliente/' +cliente.id ]);
+
   }
 
 }

@@ -1,18 +1,23 @@
-
-
   .mat-form-field {
     font-size: 14px;
-    width: 30%;
+    width: 20%;
   }
 
   table{
-    width: 100%;
-    margin: 10px !important
+    margin: 10px !important;
+    text-align: center;
+    width: 98% !important;
+
    }
+
+
 
    input{
      text-align: right;
    }
+
+
+
    .mat-column-nombre {
      word-wrap: break-word !important;
      white-space: unset !important;
@@ -25,6 +30,9 @@
      -moz-hyphens: auto;
      -webkit-hyphens: auto;
      hyphens: auto;
+     text-align: center;
+
+
    }
 
    .mat-column-dni {
@@ -57,6 +65,7 @@
      -moz-hyphens: auto;
      -webkit-hyphens: auto;
      hyphens: auto;
+     text-align: center;
    }
 
    .mat-column-direccion {
@@ -73,6 +82,7 @@
      -moz-hyphens: auto;
      -webkit-hyphens: auto;
      hyphens: auto;
+     text-align: center;
    }
    .mat-column-actividad {
     word-wrap: break-word !important;
@@ -89,7 +99,7 @@
     -webkit-hyphens: auto;
     hyphens: auto;
   }
-  .mat-column-poblacion .mat-column-email
+  .mat-column-poblacion, .mat-column-provincia
   {
    word-wrap: break-word !important;
    white-space: unset !important;
@@ -102,21 +112,9 @@
    -moz-hyphens: auto;
    -webkit-hyphens: auto;
    hyphens: auto;
+   text-align: center;
  }
-  .mat-column-provincia .mat-column-telefono1
-    {
-     word-wrap: break-word !important;
-     white-space: unset !important;
-     flex: 0 0 5% !important;
-     width: 5% !important;
-     overflow-wrap: break-word;
-     word-wrap: break-word;
-     word-break: break-word;
-     -ms-hyphens: auto;
-     -moz-hyphens: auto;
-     -webkit-hyphens: auto;
-     hyphens: auto;
-   }
+
 
   .mat-row:nth-child(even){
     border-color:#93d0f3;
@@ -135,4 +133,41 @@
       background-color:#259fe6;
       color:white;
       font-size: 14px;
+    }
+    table {
+      width: 100%;
+    }
+
+    tr.example-detail-row {
+      height: 0;
+
+    }
+
+    tr.example-element-row:not(.example-expanded-row):hover {
+      background: whitesmoke;
+    }
+
+    tr.example-element-row:not(.example-expanded-row):active {
+      background: #efefef;
+    }
+
+    .example-element-row td {
+      border-bottom-width: 0;
+
+    }
+
+    .example-element-detail {
+      overflow: hidden;
+      display: flex;
+
+    }
+
+
+
+    .example-element-description {
+      padding: 12px;
+    }
+
+    .example-element-description-attribution {
+      opacity: 0.05;
     }

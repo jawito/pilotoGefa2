@@ -1,315 +1,281 @@
 <form  [formGroup]="addClienteForm" novalidate (ngSubmit)="onAdd($event)" >
 
-      <fieldset>
-        <legend><h2 style="text-align: center; padding: 10px;">Creación de cliente</h2></legend>
-        <br>
-        <div class="row">
-          <div class="col-md-5 offset-md-1">
-
-  <!--Razon social-->
-    <div class="form-group">
-      <label for="campo-Razon"><strong>Razón Social</strong></label>
-      <input type="text" class="form-control"
-        [class.is-valid]="razonValid"
-        [class.is-invalid]="razonInValid"
-        formControlName="razon"
-
-      id="campo-razon" aria-describedby="razonHelp" placeholder="Razón Social">
-      <p>
-        <small *ngIf="razonInValid">Este campo es requerido</small>
-      </p>
-    </div>
-  </div>
-
-
-  <!--DNI-->
-
-  <div class="col-md-2">
-    <div class="form-group">
-     <label for="campo-DNI"><strong>DNI/CIF</strong></label>
-     <input type="text" class="form-control"
-     [class.is-valid]="dniValid"
-       [class.is-invalid]="dniInValid"
-       formControlName="dni"
-
-     id="campo-DNI" aria-describedby="emailHelp" placeholder="DNI/CIF">
-     <p>
-      <small *ngIf="dniInValid">Debes introducir el DNI/CIF </small>
-    </p>
-   </div>
- </div>
-
- <!--Actividad-->
- <div class="col-md-3">
-<div class="form-group">
-  <label for="campo-actividad"><strong>Actividad</strong></label>
-  <input type="text" class="form-control"
-  [class.is-valid]="actividadValid"
-    [class.is-invalid]="actividadInValid"
-    formControlName="actividad"
-
-  id="campo-actividad" aria-describedby="emailHelp" placeholder="actividad">
-  <p>
-    <small *ngIf="actividadInValid">Debes introducir la actividad </small>
-  </p></div>
-</div>
-</div>
-
-    <!--Nombre-->
+  <fieldset>
+    <legend><h2 style="text-align: center; padding: 10px;">Creación de cliente</h2></legend>
+    <br>
     <div class="row">
-      <div class="col-md-3 offset-md-1">
-              <div class="form-group">
-                <label for="campo-Nombre"><strong>Nombre</strong></label>
-                <input type="text" class="form-control"
-                  [class.is-valid]="nombreValid"
-                  [class.is-invalid]="nombreInValid"
-                  formControlName="nombre"
-                  id="campo-Nombre" aria-describedby="emailHelp" placeholder="Nombre">
-                  <p>
-                    <small *ngIf="nombreInValid">Debes introducir el Nombre </small>
-                  </p>              </div>
-            </div>
+      <div class="col-md-5 offset-md-1">
+
+<!--Razon social-->
+<div class="form-group">
+  <label for="campo-Razon"><strong>Razón Social</strong></label>
+  <input type="text" class="form-control"
+    [class.is-valid]="razonValid"
+    [class.is-invalid]="razonInValid"
+    formControlName="razon"
+
+  id="campo-razon" aria-describedby="razonHelp" placeholder="Razón Social">
+  <p>
+    <small *ngIf="razonInValid">Este campo es requerido</small>
+  </p>
+</div>
+</div>
+
+
+<!--DNI-->
+
+<div class="col-md-2">
+<div class="form-group">
+ <label for="campo-DNI"><strong>DNI/CIF</strong></label>
+ <input type="text" class="form-control"
+ [class.is-valid]="dniValid"
+   [class.is-invalid]="dniInValid"
+   formControlName="dni"
+
+ id="campo-DNI" aria-describedby="emailHelp" placeholder="DNI/CIF">
+ <p>
+  <small *ngIf="dniInValid">Debes introducir el DNI/CIF </small>
+</p>
+</div>
+</div>
+
+<!--Actividad-->
+<div class="col-md-3">
+<div class="form-group">
+<label for="campo-actividad"><strong>Actividad</strong></label>
+<input type="text" class="form-control"
+[class.is-valid]="actividadValid"
+[class.is-invalid]="actividadInValid"
+formControlName="actividad"
+
+id="campo-actividad" aria-describedby="emailHelp" placeholder="actividad">
+<p>
+<small *ngIf="actividadInValid">Debes introducir la actividad </small>
+</p></div>
+</div>
+</div>
+
+<!--Nombre-->
+<div class="row">
+  <div class="col-md-3 offset-md-1">
+          <div class="form-group">
+            <label for="campo-Nombre"><strong>Nombre</strong></label>
+            <input type="text" class="form-control"
+              [class.is-valid]="nombreValid"
+              [class.is-invalid]="nombreInValid"
+              formControlName="nombre"
+              id="campo-Nombre" aria-describedby="emailHelp" placeholder="Nombre">
+              <p>
+                <small *ngIf="nombreInValid">Debes introducir el Nombre </small>
+              </p>              </div>
+        </div>
 
 
 <!--Telefono1-->
 <div class="col-md-2">
 <div class="form-group">
-  <label for="campo-telefono1"><strong>Teléfono 1</strong></label>
-  <input type="number" class="form-control"
-  [class.is-valid]="telefono1Valid"
-    [class.is-invalid]="telefono1InValid"
-    formControlName="telefono1"
+<label for="campo-telefono1"><strong>Teléfono 1</strong></label>
+<input type="number" class="form-control"
+[class.is-valid]="telefono1Valid"
+[class.is-invalid]="telefono1InValid"
+formControlName="telefono1"
 
-  id="campo-telefono1" aria-describedby="emailHelp" placeholder="Teléfono 1">
-  <p>
-    <small *ngIf="telefono1InValid">Debes introducir el telefono. Máximo 8 dígitos </small>
-  </p>
+id="campo-telefono1" aria-describedby="emailHelp" placeholder="Teléfono 1">
+<p>
+<small *ngIf="telefono1InValid">Debes introducir el telefono. Máximo 8 dígitos </small>
+</p>
 </div>
 </div>
 <!--Telefono2-->
 <div class="col-md-2">
 <div class="form-group">
-  <label for="campo-telefono2"><strong>Teléfono 2</strong></label>
-  <input type="number" class="form-control"
-  [class.is-valid]="telefono2Valid"
-    [class.is-invalid]="telefono2InValid"
-    formControlName="telefono2"
+<label for="campo-telefono2"><strong>Teléfono 2</strong></label>
+<input type="number" class="form-control"
+[class.is-valid]="telefono2Valid"
+[class.is-invalid]="telefono2InValid"
+formControlName="telefono2"
 
-  id="campo-telefono2" aria-describedby="emailHelp" placeholder="Teléfono 2">
-  <p>
-    <small *ngIf="telefono2InValid">Debes introducir el telefono 2. Máximo 8 dígitos </small>
-  </p></div>
+id="campo-telefono2" aria-describedby="emailHelp" placeholder="Teléfono 2">
+<p>
+<small *ngIf="telefono2InValid">Debes introducir el telefono 2. Máximo 8 dígitos </small>
+</p></div>
 </div>
 
 <!--email-->
 <div class="col-md-3 ">
 <div class="form-group">
-  <label for="campo-email"><strong>Email</strong></label>
-  <input type="email" class="form-control"
-  [class.is-valid]="emailValid"
-    [class.is-invalid]="emailInValid"
-    formControlName="email"
+<label for="campo-email"><strong>Email</strong></label>
+<input type="email" class="form-control"
+[class.is-valid]="emailValid"
+[class.is-invalid]="emailInValid"
+formControlName="email"
 
-  id="campo-email" aria-describedby="emailHelp" placeholder="email">
-  <p>
-    <small *ngIf="emailInValid">Debes introducir un email correcto </small>
-  </p>
+id="campo-email" aria-describedby="emailHelp" placeholder="email">
+<p>
+<small *ngIf="emailInValid">Debes introducir un email correcto </small>
+</p>
 </div>
 </div>
 </div>
 
-  <!--Dirección-->
-  <div class="row">
-    <div class="col-md-4 offset-md-1">
-  <div class="form-group">
-    <label for="campo-Direccion"><strong>Dirección</strong></label>
-    <input type="text" class="form-control"
-    [class.is-valid]="direccionValid"
-      [class.is-invalid]="direccionInValid"
-      formControlName="direccion"
+<!--Dirección-->
+<div class="row">
+<div class="col-md-4 offset-md-1">
+<div class="form-group">
+<label for="campo-Direccion"><strong>Dirección</strong></label>
+<input type="text" class="form-control"
+[class.is-valid]="direccionValid"
+  [class.is-invalid]="direccionInValid"
+  formControlName="direccion"
 
-    id="campo-direccion" aria-describedby="direccionHelp" placeholder="Dirección">
-    <p>
-      <small *ngIf="direccionInValid">Debes introducir la dirección </small>
-    </p>  </div>
+id="campo-direccion" aria-describedby="direccionHelp" placeholder="Dirección">
+<p>
+  <small *ngIf="direccionInValid">Debes introducir la dirección </small>
+</p>  </div>
 </div>
 
-  <!--CP-->
-  <div class="col-md-2">
-  <div class="form-group">
-    <label for="campo-cp"><strong>CP</strong></label>
-    <input type="number" class="form-control"
-    [class.is-valid]="cpValid"
-      [class.is-invalid]="cpInValid"
-      formControlName="cp"
-
-    id="campo-cp" aria-describedby="cpHelp" placeholder="Código Postal">
-    <p>
-      <small *ngIf="cpInValid">Debes introducir el código postal </small>
-    </p>
-    </div>
-</div>
-
-
-  <!--Población-->
-  <div class="col-md-2">
-  <div class="form-group">
-    <label for="campo-poblacion"><strong>Población</strong></label>
-    <input type="text" class="form-control"
-    [class.is-valid]="poblacionValid"
-      [class.is-invalid]="poblacionInValid"
-      formControlName="poblacion"
-
-    id="campo-poblacion" aria-describedby="emailHelp" placeholder="Población">
-    <p>
-      <small *ngIf="poblacionInValid">Debes introducir la población </small>
-    </p>
-    </div>
-</div>
-
-
-<!--Fax-->
-<div class="col-md-2 ">
-  <div class="form-group">
-    <label for="campo-fax"><strong>Fax</strong></label>
-    <input type="number" class="form-control"
-    [class.is-valid]="faxValid"
-      [class.is-invalid]="faxInValid"
-      formControlName="fax"
-
-    id="campo-fax" aria-describedby="emailHelp" placeholder="Fax">
-    <p>
-      <small *ngIf="faxInValid">Debes introducir el fax </small>
-    </p>
-    </div>
-  </div>
-</div>
-
-  <!--Provincia-->
-  <div class="row">
-  <div class="col-md-3 offset-md-1">
-  <div class="form-group">
-    <label for="campo-provincia"><strong>Provincia</strong></label>
-    <select class="form-control"
-    [class.is-valid]="provinciaValid"
-      [class.is-invalid]="provinciaInValid"
-      formControlName="provincia"
-
-    id="exampleSelect1">
-    <p>
-      <small *ngIf="provinciaInValid">Debes elegir la provincia </small>
-    </p>    <option value='alava'>Álava</option>
-    <option value='albacete'>Albacete</option>
-    <option value='alicante'>Alicante/Alacant</option>
-    <option value='almeria'>Almería</option>
-    <option value='asturias'>Asturias</option>
-    <option value='avila'>Ávila</option>
-    <option value='badajoz'>Badajoz</option>
-    <option value='barcelona'>Barcelona</option>
-    <option value='burgos'>Burgos</option>
-    <option value='caceres'>Cáceres</option>
-    <option value='cadiz'>Cádiz</option>
-    <option value='cantabria'>Cantabria</option>
-    <option value='castellon'>Castellón/Castelló</option>
-    <option value='ceuta'>Ceuta</option>
-    <option value='ciudadreal'>Ciudad Real</option>
-    <option value='cordoba'>Córdoba</option>
-    <option value='cuenca'>Cuenca</option>
-    <option value='girona'>Girona</option>
-    <option value='laspalmas'>Las Palmas</option>
-    <option value='granada'>Granada</option>
-    <option value='guadalajara'>Guadalajara</option>
-    <option value='guipuzcoa'>Guipúzcoa</option>
-    <option value='huelva'>Huelva</option>
-    <option value='huesca'>Huesca</option>
-    <option value='illesbalears'>Illes Balears</option>
-    <option value='jaen'>Jaén</option>
-    <option value='acoruña'>A Coruña</option>
-    <option value='larioja'>La Rioja</option>
-    <option value='leon'>León</option>
-    <option value='lleida'>Lleida</option>
-    <option value='lugo'>Lugo</option>
-    <option value='madrid'>Madrid</option>
-    <option value='malaga'>Málaga</option>
-    <option value='melilla'>Melilla</option>
-    <option value='murcia'>Murcia</option>
-    <option value='navarra'>Navarra</option>
-    <option value='ourense'>Ourense</option>
-    <option value='palencia'>Palencia</option>
-    <option value='pontevedra'>Pontevedra</option>
-    <option value='salamanca'>Salamanca</option>
-    <option value='segovia'>Segovia</option>
-    <option value='sevilla'>Sevilla</option>
-    <option value='soria'>Soria</option>
-    <option value='tarragona'>Tarragona</option>
-    <option value='santacruztenerife'>Santa Cruz de Tenerife</option>
-    <option value='teruel'>Teruel</option>
-    <option value='toledo'>Toledo</option>
-    <option value='valencia'>Valencia/Valéncia</option>
-    <option value='valladolid'>Valladolid</option>
-    <option value='vizcaya'>Vizcaya</option>
-    <option value='zamora'>Zamora</option>
-    <option value='zaragoza'>Zaragoza</option>
-    </select>
-  </div>
-</div>
-
-<!--Pais-->
+<!--CP-->
 <div class="col-md-2">
 <div class="form-group">
-  <label for="campo-pais"><strong>País</strong></label>
-  <input type="text" class="form-control"
-  [class.is-valid]="paisValid"
-    [class.is-invalid]="paisInValid"
-    formControlName="pais"
+<label for="campo-cp"><strong>CP</strong></label>
+<input type="number" class="form-control"
+[class.is-valid]="cpValid"
+  [class.is-invalid]="cpInValid"
+  formControlName="cp"
 
-  id="campo-pais" aria-describedby="emailHelp" placeholder="Pais">
+id="campo-cp" aria-describedby="cpHelp" placeholder="Código Postal">
+<p>
+  <small *ngIf="cpInValid">Debes introducir el código postal </small>
+</p>
+</div>
+</div>
+
+
+<!--Población-->
+<div class="col-md-2">
+<div class="form-group">
+<label for="campo-poblacion"><strong>Población</strong></label>
+<input type="text" class="form-control"
+[class.is-valid]="poblacionValid"
+  [class.is-invalid]="poblacionInValid"
+  formControlName="poblacion"
+
+id="campo-poblacion" aria-describedby="emailHelp" placeholder="Población">
+<p>
+  <small *ngIf="poblacionInValid">Debes introducir la población </small>
+</p>
+</div>
+</div>
+
+
+<!--Provincia-->
+<div class="col-md-2 ">
+<div class="form-group">
+<label for="campo-provincia"><strong>Provincia</strong></label>
+  <select class="form-control"
+  [class.is-valid]="provinciaValid"
+    [class.is-invalid]="provinciaInValid"
+    formControlName="provincia"
+
+  id="exampleSelect1">
   <p>
-    <small *ngIf="paisInValid">Debes introducir el pais </small>
-  </p>
+    <small *ngIf="provinciaInValid">Debes elegir la provincia </small>
+  </p>    <option value='alava'>Álava</option>
+  <option value='albacete'>Albacete</option>
+  <option value='alicante'>Alicante/Alacant</option>
+  <option value='almeria'>Almería</option>
+  <option value='asturias'>Asturias</option>
+  <option value='avila'>Ávila</option>
+  <option value='badajoz'>Badajoz</option>
+  <option value='barcelona'>Barcelona</option>
+  <option value='burgos'>Burgos</option>
+  <option value='caceres'>Cáceres</option>
+  <option value='cadiz'>Cádiz</option>
+  <option value='cantabria'>Cantabria</option>
+  <option value='castellon'>Castellón/Castelló</option>
+  <option value='ceuta'>Ceuta</option>
+  <option value='ciudadreal'>Ciudad Real</option>
+  <option value='cordoba'>Córdoba</option>
+  <option value='cuenca'>Cuenca</option>
+  <option value='girona'>Girona</option>
+  <option value='laspalmas'>Las Palmas</option>
+  <option value='granada'>Granada</option>
+  <option value='guadalajara'>Guadalajara</option>
+  <option value='guipuzcoa'>Guipúzcoa</option>
+  <option value='huelva'>Huelva</option>
+  <option value='huesca'>Huesca</option>
+  <option value='illesbalears'>Illes Balears</option>
+  <option value='jaen'>Jaén</option>
+  <option value='acoruña'>A Coruña</option>
+  <option value='larioja'>La Rioja</option>
+  <option value='leon'>León</option>
+  <option value='lleida'>Lleida</option>
+  <option value='lugo'>Lugo</option>
+  <option value='madrid'>Madrid</option>
+  <option value='malaga'>Málaga</option>
+  <option value='melilla'>Melilla</option>
+  <option value='murcia'>Murcia</option>
+  <option value='navarra'>Navarra</option>
+  <option value='ourense'>Ourense</option>
+  <option value='palencia'>Palencia</option>
+  <option value='pontevedra'>Pontevedra</option>
+  <option value='salamanca'>Salamanca</option>
+  <option value='segovia'>Segovia</option>
+  <option value='sevilla'>Sevilla</option>
+  <option value='soria'>Soria</option>
+  <option value='tarragona'>Tarragona</option>
+  <option value='santacruztenerife'>Santa Cruz de Tenerife</option>
+  <option value='teruel'>Teruel</option>
+  <option value='toledo'>Toledo</option>
+  <option value='valencia'>Valencia/Valéncia</option>
+  <option value='valladolid'>Valladolid</option>
+  <option value='vizcaya'>Vizcaya</option>
+  <option value='zamora'>Zamora</option>
+  <option value='zaragoza'>Zaragoza</option>
+  </select>
 </div>
 </div>
 
 
 
 
-  <!--Fecha Alta
+<!--Fecha Alta
 
 <div class="form-group">
-  <label for="campo-fecha_alta">Fecha Alta</label>
-  <input type="date" class="form-control"
-  [class.is-valid]="fecha_altaValid"
-    [class.is-invalid]="fecha_altaInValid"
-    formControlName="fecha_alta"
+<label for="campo-fecha_alta">Fecha Alta</label>
+<input type="date" class="form-control"
+[class.is-valid]="fecha_altaValid"
+[class.is-invalid]="fecha_altaInValid"
+formControlName="fecha_alta"
 
-  id="campo-fecha_alta" aria-describedby="emailHelp" placeholder="fecha alta">
-  <small *ngIf="addClienteForm.get('fecha_alta').hasError('fecha_alta')"class="invalid-feedback" >Debes introducir la fecha de alta</small>
+id="campo-fecha_alta" aria-describedby="emailHelp" placeholder="fecha alta">
+<small *ngIf="addClienteForm.get('fecha_alta').hasError('fecha_alta')"class="invalid-feedback" >Debes introducir la fecha de alta</small>
 </div>
 -->
 <!--Fecha Modificación
 
 <div class="form-group">
-  <label for="campo-fecha_modif">Fecha de Modificación</label>
-  <input type="date" class="form-control"
-  [class.is-valid]="fecha_modifValid"
-    [class.is-invalid]="fecha_modifInValid"
-    formControlName="fecha_modif"
+<label for="campo-fecha_modif">Fecha de Modificación</label>
+<input type="date" class="form-control"
+[class.is-valid]="fecha_modifValid"
+[class.is-invalid]="fecha_modifInValid"
+formControlName="fecha_modif"
 
-  id="campo-fecha_modif" aria-describedby="emailHelp" placeholder="fecha de modificacion">
-  <small *ngIf="addClienteForm.get('fecha_modif').hasError('fecha_modif')"class="invalid-feedback" >Debes introducir la fecha de modificacion</small>
+id="campo-fecha_modif" aria-describedby="emailHelp" placeholder="fecha de modificacion">
+<small *ngIf="addClienteForm.get('fecha_modif').hasError('fecha_modif')"class="invalid-feedback" >Debes introducir la fecha de modificacion</small>
 </div>
 -->
 <!--Observaciones-->
-<div class="col-md-5">
-<div class="form-group">
-  <label for="campo-observaciones"><strong>Observaciones</strong></label>
-  <textarea class="form-control"
-  [class.is-valid]="observacionesValid"
-    [class.is-invalid]="observacionesInValid"
-    formControlName="observaciones"
+<div class="col-md-4 mx-auto">
+<div class="form-group ">
+<label for="campo-observaciones"><strong>Observaciones</strong></label>
+<textarea class="form-control"
+[class.is-valid]="observacionesValid"
+[class.is-invalid]="observacionesInValid"
+formControlName="observaciones"
 
-  id="campo-observaciones" aria-describedby="emailHelp" rows="2"placeholder="Observaciones">
- </textarea>
+id="campo-observaciones" aria-describedby="emailHelp" rows="4"placeholder="Observaciones">
+</textarea>
 </div>
 </div>
 </div>
@@ -319,13 +285,13 @@
 
 
 <div class="row justify-content-center">
-  <button [disabled]="razonvacio || razonInValid || dniInValid || actividadInValid || nombreInValid || telefono1InValid ||
-  telefono2InValid || emailInValid || direccionInValid || cpInValid || poblacionInValid || faxInValid || provinciaInValid"
-   type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i>  Crear</button>
-  <div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div>
-  <button type="reset" class="btn btn-danger"><i class="fas fa-sync-alt"></i>  Borrar</button>
+<button [disabled]="razonvacio || razonInValid || dniInValid || actividadInValid || nombreInValid || telefono1InValid ||
+telefono2InValid || emailInValid || direccionInValid || cpInValid || poblacionInValid || provinciaInValid"
+type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i>  Crear</button>
+<div class="col-sm-1 col-xs-1 col-md-1 col-lg-1"></div>
+<button type="reset" class="btn btn-danger"><i class="fas fa-sync-alt"></i>  Borrar</button>
 </div>
-  </fieldset>
+</fieldset>
 
 </form>
 

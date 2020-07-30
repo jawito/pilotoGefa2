@@ -26,10 +26,9 @@ export class AddclienteComponent implements OnInit {
       cp: new FormControl('', [Validators.required, Validators.max(99999), Validators.min(11111)]),
       poblacion: new FormControl('', [Validators.required, Validators.maxLength(50)]),
       provincia: new FormControl('valladolid', [Validators.required]),
-      pais: new FormControl('España', [Validators.required, Validators.maxLength(50)]),
       telefono1: new FormControl('', [Validators.required, Validators.max(999999999), Validators.min(111111111)]),
       telefono2: new FormControl('', [Validators.required, Validators.max(999999999), Validators.min(111111111)]),
-      fax: new FormControl('', [Validators.required, Validators.max(999999999), Validators.min(111111111)]),
+      activo: new FormControl('true', [Validators.required]),
       actividad: new FormControl('', [Validators.required, Validators.maxLength(150)]),
       email: new FormControl('', [Validators.required, Validators.maxLength(50), Validators.email]),
       fecha_alta: new FormControl('', [Validators.required, Validators.maxLength(15)]),
@@ -180,17 +179,6 @@ get razonvacio(){
     //devuelve true si el campo name esta tocado y es invalido
     return this.provinciaField.touched && this.provinciaField.invalid;
   }
-  get paisField() {
-    return this.addClienteForm.get('pais');
-  }
-  get paisValid() {
-    //devuelve true si el campo name esta tocado y es valido
-    return this.paisField.touched && this.paisField.valid;
-  }
-  get paisInValid() {
-    //devuelve true si el campo name esta tocado y es invalido
-    return this.paisField.touched && this.paisField.invalid;
-  }
   get telefono1Field() {
     return this.addClienteForm.get('telefono1');
   }
@@ -213,16 +201,16 @@ get razonvacio(){
     //devuelve true si el campo name esta tocado y es invalido
     return this.telefono2Field.touched && this.telefono2Field.invalid;
   }
-  get faxField() {
+  get activoField() {
     return this.addClienteForm.get('fax');
   }
-  get faxValid() {
+  get activoValid() {
     //devuelve true si el campo name esta tocado y es valido
-    return this.faxField.touched && this.faxField.valid;
+    return this.activoField.touched && this.activoField.valid;
   }
-  get faxInValid() {
+  get activoInValid() {
     //devuelve true si el campo name esta tocado y es invalido
-    return this.faxField.touched && this.faxField.invalid;
+    return this.activoField.touched && this.activoField.invalid;
   }
   get actividadField() {
     return this.addClienteForm.get('actividad');

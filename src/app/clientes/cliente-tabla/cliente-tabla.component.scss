@@ -1,15 +1,117 @@
-table {
-    width: 100%;
-  }
+
 
   .mat-form-field {
     font-size: 14px;
-    width: 100%;
+    width: 30%;
   }
 
-  td, th {
-    width: 25%;
+  table{
+    width: 100%;
+   }
+   .mat-column-nombre {
+     word-wrap: break-word !important;
+     white-space: unset !important;
+     flex: 0 0 15% !important;
+     width: 15% !important;
+     overflow-wrap: break-word;
+     word-wrap: break-word;
+     word-break: break-word;
+      -ms-hyphens: auto;
+     -moz-hyphens: auto;
+     -webkit-hyphens: auto;
+     hyphens: auto;
+   }
+   
+   .mat-column-dni {
+     word-wrap: break-word !important;
+     white-space: unset !important;
+     flex: 0 0 7% !important;
+     width: 7% !important;
+     overflow-wrap: break-word;
+     word-wrap: break-word;
+   
+     word-break: break-word;
+   
+     -ms-hyphens: auto;
+     -moz-hyphens: auto;
+     -webkit-hyphens: auto;
+     hyphens: auto;
+   }
+   
+   .mat-column-razon {
+     word-wrap: break-word !important;
+     white-space: unset !important;
+     flex: 0 0 15% !important;
+     width: 15% !important;
+     overflow-wrap: break-word;
+     word-wrap: break-word;
+   
+     word-break: break-word;
+   
+     -ms-hyphens: auto;
+     -moz-hyphens: auto;
+     -webkit-hyphens: auto;
+     hyphens: auto;
+   }
+   
+   .mat-column-direccion {
+     word-wrap: break-word !important;
+     white-space: unset !important;
+     flex: 0 0 18% !important;
+     width: 18% !important;
+     overflow-wrap: break-word;
+     word-wrap: break-word;
+   
+     word-break: break-word;
+   
+     -ms-hyphens: auto;
+     -moz-hyphens: auto;
+     -webkit-hyphens: auto;
+     hyphens: auto;
+   }
+   .mat-column-actividad {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
   }
+  .mat-column-poblacion .mat-column-email
+  {
+   word-wrap: break-word !important;
+   white-space: unset !important;
+   flex: 0 0 10% !important;
+   width: 10% !important;
+   overflow-wrap: break-word;
+   word-wrap: break-word; 
+   word-break: break-word;
+   -ms-hyphens: auto;
+   -moz-hyphens: auto;
+   -webkit-hyphens: auto;
+   hyphens: auto;
+ }
+  .mat-column-provincia .mat-column-telefono1 
+    {
+     word-wrap: break-word !important;
+     white-space: unset !important;
+     flex: 0 0 5% !important;
+     width: 5% !important;
+     overflow-wrap: break-word;
+     word-wrap: break-word; 
+     word-break: break-word;
+     -ms-hyphens: auto;
+     -moz-hyphens: auto;
+     -webkit-hyphens: auto;
+     hyphens: auto;
+   }
 
   .mat-row:nth-child(even){
     border-color:#93d0f3;
@@ -23,4 +125,9 @@ table {
 
   .mat-row:hover > .mat-cell {
     background-color:#dee2e6
+    }
+    .mat-sort-header{
+      background-color:#259fe6;
+      color:white;
+      font-size: 14px;
     }

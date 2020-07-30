@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
-import { Cliente } from '../interfaces/cliente'
 import { ClientesService } from '../services/clientes.service';
 import * as jsPDF from 'jspdf';
 
@@ -12,8 +11,6 @@ import * as jsPDF from 'jspdf';
 })
 export class HomeComponent implements OnInit {
   fileToUpload: File = null;
-
-  usersJson: Cliente[];
 
   formGrupo: FormGroup;
   //Los campos del formularaio se declaran como formControls

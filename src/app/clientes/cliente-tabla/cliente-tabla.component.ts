@@ -70,6 +70,9 @@ getData(){
     this.router.navigate(['/editcliente/' +cliente.id ]);
 
   }
+  alta (){
+    this.router.navigate(['/addcliente']);
+  }
 
 }
 

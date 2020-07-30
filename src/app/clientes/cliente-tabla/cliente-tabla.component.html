@@ -3,7 +3,9 @@
   <div class="mat-elevation-z8">
     <h1 style="text-align: center;padding-top: 10px;" >Listado de clientes</h1>
     <div style="text-align:right; margin-right: 20px">
+
       <mat-form-field appearance="legacy">
+      
         <mat-label>Busqueda</mat-label>
         <input matInput placeholder="Introduzca texto a buscar" #input (keyup)="applyFilter($event)"/>
       </mat-form-field>
@@ -46,7 +48,12 @@
               <td class="mat-cell" colspan="4">No se encuentra ningun resultado"{{input.value}}"</td>
       </tr>
     </table>
+    
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons style="margin-right: 2%;" ></mat-paginator>
+    <div style="padding: 30px;" >
+    <button type="button" class="btn btn-primary"  (click)="alta()">Nuevo Cliente</button>
   </div>
+  </div>
+ 
 </div>
 

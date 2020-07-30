@@ -22,42 +22,42 @@
       <!-- actividad Column -->
       <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().nombre}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
       </ng-container>
 
       <ng-container matColumnDef="dni">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> DNI/CIF </th>
-        <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().DNI }} </td>
+        <td mat-cell *matCellDef="let element"> {{element.dni }} </td>
       </ng-container>
 
       <ng-container matColumnDef="razon">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Razón Social </th>
-        <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().razon }} </td>
+        <td mat-cell *matCellDef="let element"> {{element.razon }} </td>
       </ng-container>
 
       <ng-container matColumnDef="direccion">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Dirección </th>
-        <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().direccion }} </td>
+        <td mat-cell *matCellDef="let element"> {{element.direccion }} </td>
       </ng-container>
       <ng-container matColumnDef="poblacion">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Población </th>
-        <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().poblacion }} </td>
+        <td mat-cell *matCellDef="let element"> {{element.poblacion }} </td>
       </ng-container>
       <ng-container matColumnDef="provincia">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Provincia </th>
-        <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().provincia }} </td>
+        <td mat-cell *matCellDef="let element"> {{element.provincia }} </td>
       </ng-container>
       <ng-container matColumnDef="telefono1">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Teléfono </th>
-        <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().telefono1 }} </td>
+        <td mat-cell *matCellDef="let element"> {{element.telefono1 }} </td>
       </ng-container>
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>email </th>
-        <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().email }} </td>
+        <td mat-cell *matCellDef="let element"> {{element.email }} </td>
       </ng-container>
       <ng-container matColumnDef="actividad">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Actividad </th>
-        <td mat-cell *matCellDef="let element"> {{element.payload.doc.data().actividad }} </td>
+        <td mat-cell *matCellDef="let element"> {{element.actividad }} </td>
       </ng-container>
 
 

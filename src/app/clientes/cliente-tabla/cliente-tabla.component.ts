@@ -26,6 +26,8 @@ export class ClienteTablaComponent implements OnInit {
   constructor (private clienteService: ClientesService){}
   displayedColumns: string[] = ['nombre', 'razon', 'direccion',
         'poblacion', 'provincia'];
+  labels: string[] = ['Nombre', 'Razón Social', 'Dirección',
+        'Población', 'Provincia'];      
   dataSource = new MatTableDataSource();
   clientes = new Array<ClientePr>();
   busqueda:string;

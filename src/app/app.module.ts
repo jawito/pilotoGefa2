@@ -14,7 +14,6 @@ import { FacturasComponent } from './facturas/facturas.component';
 import { AcercaComponent } from './acerca/acerca.component';
 import {AngularFirestoreModule} from '@angular/fire/firestore'
 import { ClientesService } from './services/clientes.service';
-import { ClienteListComponent } from './cliente-list/cliente-list.component';
 import { AddclienteComponent } from './clientes/addcliente/addcliente.component';
 import {MierdatableComponent} from './shared/mierdatable/mierdatable.component';
 import { DataTablesModule } from 'angular-datatables';
@@ -47,7 +46,6 @@ const routes : Routes = [
     ClientesComponent,
     FacturasComponent,
     AcercaComponent,
-    ClienteListComponent,
     AddclienteComponent,
     MierdatableComponent,
     EditclienteComponent,

@@ -14,7 +14,8 @@ import { ClientesService } from 'src/app/services/clientes.service';
 export class ClienteTablaComponent implements OnInit {
 
   constructor (private clienteService: ClientesService){}
-  displayedColumns: string[] = ['actividad', 'direccion'];
+  displayedColumns: string[] = ['nombre', 'dni', 'razon', 'direccion', 
+        'poblacion', 'provincia','telefono1', 'email','actividad'];
   dataSource = new MatTableDataSource();
   busqueda:string;
 
@@ -32,6 +33,7 @@ getData(){
   this.clienteService.getClientes().subscribe(res=>{
      this.dataSource.data = res;
   })
+  console.log("datasource",this.dataSource);
 }
 
   applyFilter(event: Event) {
@@ -44,11 +46,5 @@ getData(){
   }
 }
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
 
